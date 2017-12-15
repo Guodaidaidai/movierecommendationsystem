@@ -1,0 +1,228 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>院线对比</title>
+    <link rel="stylesheet" type="text/css" href="../css/component.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/cinema_comparing.css">
+	<link rel="stylesheet" type="text/css" href="../css/button.css">
+  	<script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/modernizr.custom.js"></script>
+		    <script>
+         /*把相应section的id和用户点击的导航栏href值比较，改变各个section的display属性*/
+            function showSection(id) {
+                var sections = document.getElementsByTagName("section");
+                for(var i=0;i<sections.length;i++) {
+                    if(sections[i].getAttribute("id") != id) {
+                        sections[i].style.display = "none";
+                    }else {
+                        sections[i].style.display = "block";
+                    }
+                }
+            }
+                
+            function getId() {
+                var navs = document.getElementsByTagName("nav");
+                var links = navs[0].getElementsByTagName("a");
+                for (var i = 0; i <links.length; i++) {
+                    //获取导航栏的href值
+                    var secId = links[i].getAttribute("href").split("#")[1];
+                    if (!document.getElementById(secId)) continue;
+                    //设置最初的演示
+                    document.getElementById(secId).style.display = "none";
+                    document.getElementById("date1").style.display = "block";
+                    /*这里存在作用域问题，secId是个局部变量，它在getId函数执行期间存在，
+                    到时间处理函数执行的时候就不存在了，故在这里为每个链接创建了一个自定义的属性destination*/
+                    links[i].destination = secId;
+                    links[i].onclick = function() {
+                        showSection(this.destination);
+                        changeColor(this.destination);
+                        return false;
+                    }
+
+                };
+            }
+            
+        window.onload = function(){
+            getId();
+        }
+		</script>
+</head>
+    
+<body>
+    <nav class="navigation_bar">
+      <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
+       <ul>
+         <li><a href="../index.html">主页</a></li>
+         <li><a href="../html/recommanding_film.html">为你挑选</a></li>
+         <li><a href="../html/hot_flim.html">优秀电影</a></li>
+         <li><a href="../html/shown_film.html">热映</a></li>
+        </ul>
+        <form class="nav_search" name="input" action="" method="post">
+          <input class="input_search" type="text" name="movie" placeholder="请输入电影名">
+          <input class="input_button" type="submit" value="搜索" style="background-color:rgb(77,122,152);color:white">
+        </form>
+        <div class="navigationbar_right">
+					<!--
+          <span><a href="html/login.html">登录</a></span>
+					<span><a href="html/regisiter.html">注册</a></span>
+					-->
+					<div class="portrait dropdown">
+						<img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+						<div class="dropdown-content">
+							<p><a href="../html/personal_center.html">个人中心</a></p>
+							<p><a href="../html/login.html">退出</a></p>
+  					</div>
+					</div>
+					<div class="nav_username">哀伤的七夕</div>
+        </div>
+    </nav>
+
+	<div class="content">
+		<div class="name">
+			<span>名侦探柯南：绝海的侦探</span>
+		</div>
+		<div class="info_show">
+			<div class="left_show">
+				<img class="movie_img" src="../img/movie03.jpg">
+				<ul>
+					<li>导演：<span>青山冈昌</span><span>青山冈昌</span></li>
+					<li>演员：<span>山崎和佳奈</span><span>神谷明</span><span>高山南</span><span>林原惠美</span><span>林原惠美</span></li>
+					<li>类型：<span>动漫</span></li>
+					<li>语言：<span>日语</span><span>国语</span><span>英语</span></li>
+					<li>地区：<span>日本</span></li>
+					<li>上映时间：<span>2015-05-06（日本）</span></li>
+					<li>时长：<span>90分钟</span></li>
+				</ul>
+			</div>
+			<div class="right_show">
+				<div class="span_title">
+					电影简介：
+				</div>
+				<div class="movie_brefinfo">
+					工藤新一是全国著名的高中生侦探，在一次追查黑衣人犯罪团伙时不幸被团伙成员发现，击晕后喂了神奇的药水，工藤新一变回了小孩！新一找到了经常帮助他的阿笠博士，博士为他度身打造不少间谍武器。为了防止犯罪团伙对他进行报复，新一决定隐姓埋名，暗中追查他们，希望能得到解药。一日，新一的女友毛利兰来到了阿笠博士的家寻找男友的下落，被小兰撞见的新一情急之下编造了自己名叫江户川柯南，随后柯南寄居在了小兰家。小兰的父亲毛利小五郎是一名私家侦探，新一可以籍着和他一起四出办案一起追查黑夜人的下落。柯南在小学认识步美等小学生，他们一起组织了一个少年侦探对，向罪犯宣战！
+				</div>
+			</div>
+			<div class="bottom_button">
+<!--				<button class="button_like button button-block button-rounded button-highlight button-normal">
+					<i class="icon-heart-empty"></i>
+					想看（点击收藏）
+				</button>
+-->
+				<button class="button_like button button-block button-rounded button-highlight button-normal">
+					<i class="icon-heart"></i>
+					已收藏想看
+				</button>
+
+			</div>
+		</div>
+		
+		<div class="cinema_comparing_div">
+			<nav class="select_date">
+          <ul id="select_date_ul">
+            <li onmousedown="fun(0)"><a href="#date1">今天<br><span>12-10</span></a></li>
+            <li onmousedown="fun(1)"><a href="#date2">明天<br><span>12-11</span></a></li>
+            <li onmousedown="fun(2)"><a href="#date3">后天<br><span>12-12</span></a></li>
+          </ul>
+        </nav> 
+			<div class="compared_info">
+				<section id="date1">
+					<div class="cinema">
+						<div class="cinema_name">月星环球国际影城</div>
+						<div class="cinema_distance"><span>0.1</span>km</div>
+						<div class="cinema_price"><span>48</span>元</div>
+						<div class="button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">成龙耀莱影城</div>
+						<div class="cinema_distance"><span>2.2</span>km</div>
+						<div class="cinema_price"><span>38</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">星美影城</div>
+						<div class="cinema_distance"><span>2.3</span>km</div>
+						<div class="cinema_price"><span>38</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">巴黎春天</div>
+						<div class="cinema_distance"><span>2.3</span>km</div>
+						<div class="cinema_price"><span>28</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">SFC上影影城</div>
+						<div class="cinema_distance"><span>4.6</span>km</div>
+						<div class="cinema_price"><span>28</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">SFC上影影城</div>
+						<div class="cinema_distance"><span>4.6</span>km</div>
+						<div class="cinema_price"><span>28</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">SFC上影影城</div>
+						<div class="cinema_distance"><span>4.6</span>km</div>
+						<div class="cinema_price"><span>28</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+				</section>
+				<section id="date2">
+										<div class="cinema">
+						<div class="cinema_name">月星环球国际影城</div>
+						<div class="cinema_distance"><span>0.1</span>km</div>
+						<div class="cinema_price"><span>48</span>元</div>
+						<div class="button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">成龙耀莱影城</div>
+						<div class="cinema_distance"><span>2.2</span>km</div>
+						<div class="cinema_price"><span>38</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">星美影城</div>
+						<div class="cinema_distance"><span>2.3</span>km</div>
+						<div class="cinema_price"><span>38</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+					<div class="cinema">
+						<div class="cinema_name">巴黎春天</div>
+						<div class="cinema_distance"><span>2.3</span>km</div>
+						<div class="cinema_price"><span>28</span>元</div>
+						<div class="button_margin button button-glow button-rounded button-caution">购票</div>
+					</div>
+				</section>
+				<section id="date3">
+					<div class="no_data">暂无院线数据</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+<footer class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<p>Copyright © FilmDog Web. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+<script>
+    var nav = document.getElementById("select_date_ul").getElementsByTagName("li");
+    function fun(num) {
+        for (var n = 0; n < nav.length; n++) {
+            nav[n].className="";
+        }
+        nav[num].className="special";
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/assign.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  	<script src="../js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="../js/login.js"></script>
+        <title>FilmDog - 私人定制你的电影世界</title>
+    </head>
+
+<body>
+    <div class="main">
+        <div class="main_body">
+            <div class="main_header">
+                <img src="../img/logo2.png">
+                <h2 class="introduction">私人定制你的电影世界</h2>
+            </div>
+            <div class="main_desk">
+                <div class="main_nav">
+                    <div class="nav_content">
+                        <a href="../html/assign.html" class="activeassign">注册</a>
+                        <a href="login.html" class="activelogin">登录</a>
+                    </div>
+                </div>
+                <div class="main_view">
+                  <form method="post" novalidate="novalidate" class="inner_content">
+                    <div class="group_inputs">
+                       <div class="wrap_input">
+                           <div class="wrap_Iten">
+                              <div class="item_tip">请输入昵称</div>
+                              <input type="text" class="form_input" tabindex="1" name="fullname" aria-label="姓名" required>
+                           </div>
+                        </div>
+                        <div class="wrap_input">
+                           <div class="wrap_Iten">
+                              <div class="item_tip">请输入手机号</div>
+                              <input type="text" class="form_input" tabindex="1" name="account" aria-label="手机号" required>
+                           </div>
+                        </div>
+                        <div class="wrap_input">
+                           <div class="wrap_Iten">
+                              <div class="item_tip">请输入密码</div>
+                              <input type="password" class="form_input" tabindex="1" name="password" aria-label="密码" required>
+                           </div>
+                        </div>
+                    </div>
+                      
+     <script>
+function focusInputLoginBox(obj) {
+    obj.addClass("form_input-focus");
+    obj.prev(".item_tip").addClass("item_tip_focus")
+}
+
+function blurInputLoginBox(obj) {
+    var v = obj.val();
+    if (v == "") {
+        obj.removeClass("form_input-focus");
+        obj.prev(".item_tip").removeClass("item_tip_focus")
+    } else {
+        obj.addClass("form_input-focus");
+        obj.prev(".item_tip").addClass("item_tip_focus")
+    }
+}
+$(document).ready(function() {
+    $("input").blur(function() {
+        blurInputLoginBox($(this))
+    })
+    $("input").focus(function() {
+        focusInputLoginBox($(this))
+    })
+})
+                          
+</script>                  
+                      
+                    <div class="button_command">
+                        <button onClick="window.open('../index.html')" class="sign_button" type="submit">注册</button>
+                    </div>
+                   </form>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

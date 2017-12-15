@@ -1,0 +1,175 @@
+body
+{
+    text-align: center;
+}
+
+.profileHeader
+{
+    margin:0 auto;
+    height:320px;
+    width:1100px;
+}
+
+.card
+{
+    margin:0 auto;
+    height:320px;
+    width:1100px;
+    text-align: center;
+}
+
+.card_background
+{
+	position: relative;
+	width:1100px;
+	height:320px
+}
+
+.card_background img
+{
+	float:left;
+	height:320px;
+	width:1100px;
+	z-index:-1;
+}
+
+.transform_button
+{
+	position: absolute;
+	right:80px;
+}
+
+.selfImage
+{
+    float: left;
+    margin:0 487.5px;
+    margin-top:57px;
+    height:125px;
+    width:125px;
+	  position:absolute;
+	  top:25px;
+	  text-align: center;
+}
+
+.selfImage img
+{
+    border-radius:62.5px;
+	  width:90px;
+	  height:90px;
+	  margin: 0 auto;
+}
+
+.profileHeader-title
+{
+    float: left;
+    margin-left:250px;
+    margin-top: 23px;
+    height:100px;
+    width:600px;
+	  position: absolute;
+}
+
+.profileHeader-name
+{
+    float: left;
+    height:35px;
+    width:600px;
+    font-size: 25px;
+    font-weight: thick;
+    color:#BB5500;
+	  text-align: center;
+}
+
+.self_introduction
+{
+    float: left;
+    height:23px;
+    width:600px;
+    margin-top:5px;
+    color:#BB5500;
+}
+
+.transform_button
+{
+    float:right;
+    margin-right:10px;
+    margin-bottom: 0px;
+}
+
+.transition
+{
+    height:27px;
+}
+
+.profileMain
+{
+    margin:0 auto;
+    height:600px;
+    width:1100px;
+}
+
+.profile_nav
+{
+    float:left;
+    height:224px;
+    width:220px;
+    background-color:#E0E0E0;
+}
+
+.nav_shape
+{	
+    float:left;
+    height:280px;
+    width:220px;
+}
+
+.nav_shape ul
+{
+    float:left;
+    width:100%;
+    height:100%;
+    margin-top:0px;
+    padding:0;
+}
+
+.nav_shape ul li 
+{
+    float:left;
+    width:100%;
+    height:20%;
+    display:block;
+	background: linear-gradient(to left ,rgb(155,122,93),rgb(125,122,116));
+}
+
+.nav_shape ul li a
+{
+    float:left;
+    color:#fff;
+    display:block;
+    text-align:center;
+    line-height:70px;
+    text-decoration:none;
+    width:100%;
+    height:100%;
+    font-size: 14px;
+    border-bottom: thin solid rgb(125,122,116);
+}
+
+.nav_shape ul li a:hover
+{
+    float:left;
+    background:linear-gradient(to left ,#108dc7,#ef8e38);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
