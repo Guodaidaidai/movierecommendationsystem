@@ -3,17 +3,19 @@
     <head>
        <meta charset="utf-8">
        <title>单个电影</title>
-       <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../css/component.css">
-        <link rel="stylesheet" href="../%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E5%A4%B9/%E5%B9%BB%E7%81%AF%E7%89%87%E5%BC%8F.css">
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/single_film2.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="../css/single_film.css">
   	    <script src="../js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
     </head>
 
 <body>
+	<div id="top"></div>
+	<div id="navbg">
     <nav class="navigation_bar">
       <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
        <ul>
@@ -41,20 +43,33 @@
 					<div class="nav_username">哀伤的七夕</div>
         </div>
     </nav>
-
+	</div>
+	
 <div class="wrapper">
   <div class="style">
     <div class="symbol">
-        <img src="../img/quotation.png">
+        <img src="../img/quotation2.png">
       </div>
-    <div class="movie_title">
+  <div class="k1">
+    <ul>
+        <li>
+            <a class="movie_name">名侦探柯南---唐红的恋歌</a>
+            <ol class="subnav">
+                <li><a href="#">观影链接</a></li>
+                <li><a href="#">影评链接</a></li>
+            </ol>
+        </li>      
+    </ul>
+</div>
+      <!--
+      <div class="movie_title">
        <div id="movie_name">名侦探柯南---唐红的恋歌
        </div>
        <div class="movie_link">
           <div class="address_link"><a href="#">观影链接</a></div>
           <div class="comment_link"><a href="#">更多影评</a></div>
        </div>
-    </div>
+    </div>  -->
   </div>
     <div class="cont s--inactive">
     <!-- cont inner start -->
@@ -237,7 +252,20 @@ $closeBtnsArr.forEach(function($btn) {
 });
     </script>
 
-    
+    <!--悬浮主导航栏-->
+<script type="text/javascript">
+$(document).ready(function () {
+    var topH=$("#top").height();//获取头部高度，top指导航栏上面的部分
+    var navbg=$("#navbg");//获取导航栏对象
+    $(window).scroll(function () {
+        if($(window).scrollTop()>topH){//对比滚动的距离与导航栏上面部分的高度大小来动态添加css样式
+            navbg.addClass("scrollNav")//对导航栏添加样式
+        }else{
+            navbg.removeClass("scrollNav")//去掉导航栏添加的样式
+        }
+    });
+});
+</script>
 </body>
 </html>        
         

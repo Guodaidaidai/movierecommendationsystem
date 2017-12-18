@@ -1,31 +1,35 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../css/assign.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  	<script src="../js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-        <script src="../js/login.js"></script>
-        <title>FilmDog - 私人定制你的电影世界</title>
-    </head>
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="gb2312">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/selected_div.css">
+<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../css/assign.css">
+<link rel="stylesheet" href="../css/style2.css"> <!-- Resource style -->
+<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+	
 
+<title>Ink Transition Effect | CodyHouse</title>
+</head>
 <body>
-    <div class="main">
-        <div class="main_body">
-            <div class="main_header">
-                <img src="../img/logo2.png">
-                <h2 class="introduction">私人定制你的电影世界</h2>
-            </div>
-            <div class="main_desk">
-                <div class="main_nav">
-                    <div class="nav_content">
-                        <a href="../html/assign.html" class="activeassign">注册</a>
-                        <a href="login.html" class="activelogin">登录</a>
-                    </div>
-                </div>
-                <div class="main_view">
+<main class="cd-main-content">
+	<div class="center">
+		<div class="main_body">
+      <div class="main_header">
+      	<img src="../img/logo2.png">
+        <h2 class="introduction">私人定制你的电影世界</h2>
+      </div>
+			<div class="main_desk">
+				<div class="main_nav">
+          <div class="nav_content">
+          	<a href="../html/assign.html" class="activeassign">注册</a>
+						<a href="../html/login.html" class="activelogin">登录</a>
+          </div>
+        </div>
+				<div class="main_view">
                   <form method="post" novalidate="novalidate" class="inner_content">
                     <div class="group_inputs">
                        <div class="wrap_input">
@@ -73,15 +77,62 @@ $(document).ready(function() {
     })
 })
                           
-</script>                  
-                      
-                    <div class="button_command">
-                        <button onClick="window.open('../index.html')" class="sign_button" type="submit">注册</button>
-                    </div>
-                   </form>
-                </div>
-            </div>
+</script>	
+					</form>	
+					<a href="#0" class="cd-btn cd-modal-trigger">注册</a>
+				</div>
+			</div>
+		</div>
+</div>
+		<canvas class="Mycanvas"></canvas>
+    <script src="../js/canvas_reload.js"></script>
+</main> <!-- .cd-main-content -->
+
+<div class="cd-modal">
+	<div class="modal-content">
+		<div class="select">
+		<h1>请选择您感兴趣的电影标签</h1>
+		<ul>
+		 <li>剧情<i class="icon">√</i> </li>
+		 <li>战争<i class="icon">√</i></li>
+		 <li>冒险<i class="icon">√</i></li>
+		 <li>喜剧<i class="icon">√</i></li>
+		 <li>动作<i class="icon">√</i></li>
+            <div class="brm"></div>
+		 <li>爱情<i class="icon">√</i></li>  
+		 <li>古装 <i class="icon">√</i> </li>
+         <li>武侠<i class="icon">√</i></li>
+         <li>犯罪<i class="icon">√</i></li>
+   	     <li>悬疑<i class="icon">√</i></li>
+            <div class="brm"></div>
+         <li>动画<i class="icon">√</i></li>
+		 <li>惊悚<i class="icon">√</i></li>   
+		 <li>科幻<i class="icon">√</i></li>
+         <li>音乐<i class="icon">√</i></li>
+         <li>儿童<i class="icon">√</i></li>
+		</ul>
+	    </div>
+<script>
+$(function() {
+    $("ul li").click(function() {
+        $(this).toggleClass('active');
+    })
+})
+</script>
+        <div class="tip">
+             <button onClick="window.open('login.html')" class="sign_button" type="submit">点此完成注册</button><br>
         </div>
-     </div>
+	</div> <!-- .modal-content -->
+     
+ <!-- 	<a href="#0" class="modal-close">Close</a>  -->
+</div> <!-- .cd-modal -->
+
+<div class="cd-transition-layer"> 
+	<div class="bg-layer"></div>
+</div> <!-- .cd-transition-layer -->
+
+	
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="../js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>

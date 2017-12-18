@@ -1,131 +1,16 @@
-.dropdown-content a
-{
-    color:white;
-}
-
-.wrapper
-{
-    height:1000px;
-    margin:0 auto;
-    width:100%;
-    float:left;
-}
-
-.style
-{
-    
-    float:left;
-    padding:0;
-    margin-top:20px;
-    height:100px;
-    width:1200px;
-}
-
-.symbol
-{
-    float:left;
-    margin-left: 10px;
-}
-
-.symbol img
-{
-    width:80px;
-    height:80px;
-    
-}
-
-a {
-	color:#888;
-	font-family:"Microsoft YaHei";
-}
-
-.k1 {
-    float:left;
-	width:auto;
-	height:40px;	
-	background-color:#67825b;
-    margin-top:25px;
-    margin-left:15px;
-    border-radius: 8px;
-    box-shadow: 3px;
-    padding:7px 11px 5px 11px;
-
-}
-
-.k1 ul {
-    margin:0;
-    list-style-type: none;
-     box-shadow: 3px;
-    border-radius: 6px;
-}
-
-.movie_name
-{
-    font-size:15px;
-    width:auto;
-    color:white;
-    font-weight: 400;
-}
-
-.movie_name:hover{
-    color:#67825b;
-    text-decoration: none;
-}
-
-.k1 ul li {
-	width:auto;
-	height:30px;
-	line-height:30px;
-	text-align:center;
-	cursor:pointer;
-    padding:0;
-     list-style-type: none;
-    background-color: #67825b;
-}
-
-.k1 li:hover {
-	background: #869B74;   
-}
-
-.subnav li {
-	background-color: #67825b;
-	opacity:0;
-	transform:rotateY(90deg);
-	transition:opacity 0.4s,transform 0.5s;
-}
-
-.subnav li a
-{
-    color:white;
-}
-
-.k1 ul li:hover .subnav li {
-	opacity:1;
-	transform:none;
-}
-.div ul li:hover .subnav li:nth-child(1) {
-	transition-delay:0ms;
-}
-.div ul li:hover .subnav li:nth-child(2) {
-	transition-delay:50ms;
-}
-
-/*
 *,*:before,*:after {
 	box-sizing:border-box;
 	margin:0;
 	padding:0;
-} */
-
+}
 body {
-	background:  #FFEBCC;
+	background:#fe8506;
 	font-family:'Open Sans',Helvetica,Arial,sans-serif;
 }
-
 .cont {
 	position:relative;
 	overflow:hidden;
-    margin-top: 120px;
+    margin-top: 104px;
     margin-left: 150px;
     margin-right: 150px;
 	height:78vh;
@@ -144,7 +29,7 @@ body {
 	top:0;
 	width:24%;
 	height:100%;
-	background:#67825b;
+	background:#c4b7b7;
 	-webkit-transition:width 0.7s,opacity 0.6s 0.7s,z-index 0s 1.3s,-webkit-transform 0.6s 0.7s;
 	transition:width 0.7s,opacity 0.6s 0.7s,z-index 0s 1.3s,-webkit-transform 0.6s 0.7s;
 	transition:transform 0.6s 0.7s,width 0.7s,opacity 0.6s 0.7s,z-index 0s 1.3s;
@@ -213,10 +98,10 @@ body {
 	z-index:1;
 	position:absolute;
 	left:0;
-	top:0;  
+	top:0;
 	width:100%;
 	height:100%;
-	background:#e8d08c;
+	background:rgba(0,0,0,0.3);
 	opacity:0;
 	-webkit-transition:opacity 0.5s;
 	transition:opacity 0.5s;
@@ -287,114 +172,11 @@ body {
 }
 .el__text {
 	text-transform:uppercase;
-    width:100%;
+    width:70%;
     height:100%;
 	font-size:40px;
 	color:#fff;
 }
-
-.c1
-{
-    width:100%;
-    height:100%;
-    float:left;
-}
-
-.movie_card
-{
-    float:left;
-    margin-top: 3px;
-    margin-left: 80px;
-    height:367px;
-    width:244px;
-    background-color: #00000050;
-    border-radius: 4px;
-    box-shadow: 3px;
-}
-
-.movie_post
-{
-    float:left;
-    height:325px;
-    width:244px;
-}
-
-.movie_post img
-{
-    text-align: center;
-    width:244px;
-    height:325px;
-}
-
-.name
-{
-    float:left;
-    padding:0;
-    font-size: 18px;
-    width:244px;
-    height:19px;
-    margin-top: 10px;
-    margin-left:0px;
-    text-align: center;
-}
-
-.movie_info
-{
-    float:left;
-    width:500px;
-    height:367px;
-    margin-left: 93px;
-    margin-top: 3px;
-    background-color: #00000050;
-    border-radius: 4px;
-    box-shadow: 3px;
-}
-
-.info_content
-{
-    float:left;
-    height:380px;
-    width:465px;
-    margin-top: -21px;
-    margin-left:8px;
-}
-
-.p1
-{
-    font-size: 14px;
-    color:#4F4F4F;
-    margin-top:-21px;
-    padding:0px;
-}
-
-.outline
-{
-    margin-top: 22px;
-    font-size:20px;
-    color:#00000060;
-    display:-webkit-box;
-	-webkit-box-orient:vertical;
-	-webkit-line-clamp:14;
-}
-
-.comment_photo
-{
-    float:left;
-    width：100%;
-    height:100%;
-}
-
-.comment
-{
-    margin-top: 20px;
-    font-size:20px;
-    color:#00000060;
-    display:-webkit-box;
-	-webkit-box-orient:vertical;
-	-webkit-line-clamp:13;
-    overflow: hidden;
-}
-
 .el__close-btn {
 	z-index:-1;
 	position:absolute;
@@ -713,33 +495,3 @@ body {
 	left:auto;
 	right:5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

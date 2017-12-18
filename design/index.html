@@ -1,354 +1,51 @@
-<!Doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>首页</title>
-    <link rel="stylesheet" type="text/css" href="css/component.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  	<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>首页</title>
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/3D.css" />
 </head>
-    
 <body>
-    <nav class="navigation_bar">
-      <div class="logo_img"><a href="../index.html"><img src="img/logo.png"></a></div>
-       <ul>
-         <li><a href="../index.html">主页</a></li>
-         <li><a href="../html/recommanding_film.html">为你挑选</a></li>
-         <li><a href="../html/hot_flim.html">优秀电影</a></li>
-         <li><a href="../html/shown_film.html">热映</a></li>
-        </ul>
-        <form class="nav_search" name="input" action="" method="post">
-          <input class="input_search" type="text" name="movie" placeholder="请输入电影名">
-          <input class="input_button" type="submit" value="搜索" style="background-color:rgb(77,122,152);color:white">
-        </form>
-        <div class="navigationbar_right">
-					<!--
-          <span><a href="html/login.html">登录</a></span>
-					<span><a href="html/regisiter.html">注册</a></span>
-					-->
-					<div class="portrait dropdown">
-						<img src="../img/%E5%B0%8F%E5%93%80.jpeg">
-						<div class="dropdown-content">
-							<p><a href="../html/personal_center.html">个人中心</a></p>
-							<p><a href="../html/login.html">退出</a></p>
-  					</div>
-					</div>
-					<div class="nav_username">哀伤的七夕</div>
-        </div>
-    </nav>
-     <div class="slideshow">
-        <!-- 轮播（Carousel）项目 -->
-           <div class="nav_control">  
-                <ul id="nav">
-                   <li onmousemove="fun('0')" class="now">余罪</li>
-                   <li onmousemove="fun('1')">我们的法则</li>
-                   <li onmousemove="fun('2')">跑男</li>
-                   <li onmousemove="fun('3')">废柴兄弟</li>
-                   <li onmousemove="fun('4')">最好的我们</li>
-                   <li onmousemove="fun('5')">大张伟</li>
-                   <li onmousemove="fun('6')">WWDC大会</li>
-                </ul>
-                <div id="pic">
-                   <div><img src="../img/test1.jpg"></div>
-                   <div><img src="../img/test2.jpg"></div>
-                   <div><img src="../img/movie02.jpeg"></div>
-                   <div><img src="../img/movie03.jpg"></div>
-                   <div><img src="../img/movie04.jpg"></div>
-                   <div><img src="../img/movie06.jpg"></div>
-                   <div><img src="../img/%E6%B2%99%E6%BB%A9.jpg"></div>
-                </div>
-           </div>
-               
-    </div>
-		<div class="Clear"></div>
-		<div class="movie-show">
-			<div class="selected1">
-				<header>
-					<p>为你挑选</p>
-					<p class="movie-button"><a href="html/recommanding_film.html">更多</a></p><span class="item dot-right"></span> 
-				</header>
-				<div class="selected-show">
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
-					<div class="selected-movie">
-						<a href="html/single_film.html"><img src="img/movie02.jpeg"></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：唐红的恋歌</p>
-							<p id="movie_brefinfo">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。爆炸骚动中，柯南与坚称是平次未婚妻的女子相遇。她的名字是大冈红叶。红叶竟然是竞技歌牌的高中生冠军。意想不到的是，和叶决定赌上平次向红叶挑战百人一首，拜颇具实力的平次之母静华为师，开始了特训的日子。</p>
-						</a>
-					</div>
 
-				</div>
-			</div>
-			
-			<div class="selected">
-				<header>
-					<p>优秀电影</p>
-					<p class="movie-button"><a href="html/hot_flim.html">更多</a></p><span class="item dot-right"></span> 
-				</header>
-				<div class="selected-show">
-					<div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-                    <div class="selected-movie">
-						<a href="html/single_film.htm"><img src="img/movie04.jpg
-                            "></a>
-						<hr />
-						<a href="html/single_film.html">
-							<p id="movie_name">名侦探柯南：业火的向日葵</p>
-							<p id="movie_brefinfo">大富豪云集的拍卖会场人声鼎沸。铃木财团的顾问铃木次郎吉拍下了据说早已在日本被烧毁的梵高名作《向日葵》。电视正对这个重大新闻进行全球直播，柯南和小兰他们也在目不转睛地收看着。为保护画作，铃木财团召集了以毛利小五郎为首的专业团队“七武士”。就在这时，怪盗基德突然出现！他大张旗鼓地扰乱了会场，随后消失在纽约上空。</p>
-						</a>
-					</div>
-				     
-				</div>
-			</div>
-			
-				<div class="selected">
-				<header>
-					<p>热映将映</p>
-					<p class="movie-button"><a href="html/shown_film.html">更多</a></p><span class="item dot-right"></span> 
-				</header>
-				<div class="selected-show">
-					<div class="selected-movie bottom-border">
-						<a href="html/cinema_comparing.html"><img src="img/movie03.jpg"></a>
-						<hr />
-						<a href="html/cinema_comparing.html">
-							<p id="movie_name">名侦探柯南：绝海的侦探</p>
-							<p id="movie_brefinfo">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</p>
-						</a>
-					</div>
-                    <div class="selected-movie bottom-border">
-						<a href="html/cinema_comparing.html"><img src="img/movie03.jpg"></a>
-						<hr />
-						<a href="html/cinema_comparing.html">
-							<p id="movie_name">名侦探柯南：绝海的侦探</p>
-							<p id="movie_brefinfo">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</p>
-						</a>
-					</div>
-                    <div class="selected-movie bottom-border">
-						<a href="html/cinema_comparing.html"><img src="img/movie03.jpg"></a>
-						<hr />
-						<a href="html/cinema_comparing.html">
-							<p id="movie_name">名侦探柯南：绝海的侦探</p>
-							<p id="movie_brefinfo">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</p>
-						</a>
-					</div>
-                    <div class="selected-movie bottom-border">
-						<a href="html/cinema_comparing.html"><img src="img/movie03.jpg"></a>
-						<hr />
-						<a href="html/cinema_comparing.html">
-							<p id="movie_name">名侦探柯南：绝海的侦探</p>
-							<p id="movie_brefinfo">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</p>
-						</a>
-					</div>
-                    <div class="selected-movie bottom-border">
-						<a href="html/cinema_comparing.html"><img src="img/movie03.jpg"></a>
-						<hr />
-						<a href="html/cinema_comparing.html">
-							<p id="movie_name">名侦探柯南：绝海的侦探</p>
-							<p id="movie_brefinfo">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</p>
-						</a>
-                    </div>
-				
-                 </div>
-			</div>
-			
-		</div>
-	
-<footer class="text-center">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<p>Copyright © FilmDog Web. All rights reserved.</p>
-			</div>
-		</div>
+<div class="box">
+  <div class="box-con"> <span class="prev"></span> <span class="next"></span>
+    <ul class="list">
+    </ul>
+  </div>
+	<div class="tag_nav">
+		<ul>
+			<li><a class="btn-6" href="../html/recommanding_film.html">为你挑选<span></span></a></li>
+			<li><a class="btn-6" href="../html/hot_flim.html">优秀电影<span></span></a></li>
+			<li><a class="btn-6" href="../html/shown_film.html">热映将映<span></span></a></li>
+		</ul>
 	</div>
-</footer>
-    
-     <script>
-    var nav = document.getElementById("nav").getElementsByTagName("li");
-    var navshow = document.getElementById("pic").getElementsByTagName("div");
-    function fun(num) {
-        for (var n = 0; n < nav.length; n++) {
-            nav[n].className="";
-        }
-        nav[num].className="now";
+</div>
+<canvas class="canvas"></canvas>
 
-        for(var m=0;m<navshow.length;m++){
-            navshow[m].style.display="none";
-        }
-        navshow[num].style.display="block";
-    }
+<script type="text/javascript" src="js/canvas.js"></script> 
+<script src="../js/3Ddata.js"></script> 
+<script src="js/3D.js"></script>
+	<script type="text/javascript">
+		$(function () {
+		    $('.btn-6').on('mouseenter', function (e) {
+		        var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+		        $(this).find('span').css({
+		            top: relY,
+		            left: relX
+		        });
+		    }).on('mouseout', function (e) {
+		        var parentOffset = $(this).offset(), relX = e.pageX - parentOffset.left, relY = e.pageY - parentOffset.top;
+		        $(this).find('span').css({
+		            top: relY,
+		            left: relX
+		        });
+		    });
+		    $('[href=#]').click(function () {
+		        return false;
+		    });
+		});
+	</script>
 
-</script>
-    
 </body>
 </html>

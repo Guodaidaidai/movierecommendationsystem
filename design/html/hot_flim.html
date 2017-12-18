@@ -6,9 +6,12 @@
        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
        <link rel="stylesheet" href="../css/hot_film.css">
        <link rel="stylesheet" href="../css/component.css">
+			 <script src="../js/jquery.min.js"></script>
     </head>
 
 <body>
+	<div id="top"></div>
+	<div id="navbg">
     <nav class="navigation_bar">
       <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
        <ul>
@@ -36,7 +39,8 @@
 					<div class="nav_username">哀伤的七夕</div>
         </div>
     </nav>
-    
+    </div>
+		
     <div class="main_body">
         <div id="category">
           <div class="category1">
@@ -289,7 +293,20 @@
 
         
     </div>
-    
+    <!--悬浮主导航栏-->
+<script type="text/javascript">
+$(document).ready(function () {
+    var topH=$("#top").height();//获取头部高度，top指导航栏上面的部分
+    var navbg=$("#navbg");//获取导航栏对象
+    $(window).scroll(function () {
+        if($(window).scrollTop()>topH){//对比滚动的距离与导航栏上面部分的高度大小来动态添加css样式
+            navbg.addClass("scrollNav")//对导航栏添加样式
+        }else{
+            navbg.removeClass("scrollNav")//去掉导航栏添加的样式
+        }
+    });
+});
+</script>
     
 </body>
 </html>
