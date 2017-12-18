@@ -1,0 +1,456 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>个人中心</title>
+     <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../css/component.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+ <script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+    <link href="../css/personal_center.css" rel='stylesheet' type='text/css'>
+<script>
+         /*把相应section的id和用户点击的导航栏href值比较，改变各个section的display属性*/
+            function showSection(id) {
+                var sections = document.getElementsByTagName("section");
+                for(var i=0;i<sections.length;i++) {
+                    if(sections[i].getAttribute("id") != id) {
+                        sections[i].style.display = "none";
+                    }else {
+                        sections[i].style.display = "block";
+                    }
+                }
+            }
+          /*把导航栏href和用户点击href比较，改变相应元素的父元素的className*/
+            function changeColor(id) {
+                var navs = document.getElementsByTagName("nav");
+                var links = navs[1].getElementsByTagName("a");
+                for (var i = 0; i <links.length; i++) {
+                    var sectionId = links[i].getAttribute("href").split("#")[1];
+                    if(sectionId == id){
+                        links[i].parentNode.className = "special";
+                    }else {
+                        links[i].parentNode.className = "";
+                    }
+                }
+            }
+            function getId() {
+                var navs = document.getElementsByTagName("nav");
+                var links = navs[1].getElementsByTagName("a");
+                for (var i = 0; i <links.length; i++) {
+                    //获取导航栏的href值
+                    var secId = links[i].getAttribute("href").split("#")[1];
+                    if (!document.getElementById(secId)) continue;
+                    //设置最初的演示
+                    document.getElementById(secId).style.display = "none";
+                    document.getElementById("favorite").style.display = "block";
+                    /*这里存在作用域问题，secId是个局部变量，它在getId函数执行期间存在，
+                    到时间处理函数执行的时候就不存在了，故在这里为每个链接创建了一个自定义的属性destination*/
+                    links[i].destination = secId;
+                    links[i].onclick = function() {
+                        showSection(this.destination);
+                        changeColor(this.destination);
+                        return false;
+                    }
+
+                };
+            }
+            
+        window.onload = function(){
+            getId();
+        }
+		</script>
+
+	
+
+</head>
+
+<body>
+		<div id="top"></div>
+		<div id="navbg">
+    <nav class="navigation_bar">
+      <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
+       <ul>
+         <li><a href="../index.html">主页</a></li>
+         <li><a href="../html/recommanding_film.html">为你挑选</a></li>
+         <li><a href="../html/hot_flim.html">优秀电影</a></li>
+         <li><a href="../html/shown_film.html">热映</a></li>
+        </ul>
+        <form class="nav_search" name="input" action="" method="post">
+          <input class="input_search" type="text" name="movie" placeholder="请输入电影名">
+          <input class="input_button" type="submit" value="搜索" style="background-color:rgb(77,122,152);color:white">
+        </form>
+        <div class="navigationbar_right">
+					<div class="portrait dropdown">
+						<img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+						<div class="dropdown-content">
+							<p><a href="../html/personal_center.html">个人中心</a></p>
+							<p><a href="../html/login.html">退出</a></p>
+  					</div>
+					</div>
+					<div class="nav_username">哀伤的七夕</div>
+        </div>
+    </nav>
+	</div>
+    
+    
+  <div class="wrapper">
+
+	  <div class="main">
+          <div class="left_main">
+              <div class="picture-card">
+                  <img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+              </div>
+              <div class="name">
+                  <div ondblclick="ShowElement(this)" class="n1">哀伤的七夕</div>
+                  <div ondblclick="ShowElement(this)" class="n2">生死与共，却固守着疏离...柯哀大爱不解释</div>
+              </div>
+              <nav class="personal_nav">
+				<ul>
+                    <li><a href="#favorite">收藏</a></li>
+                    <li><a href="#history">历史</a></li>
+                    <li><a href="#edit">设置</a></li>
+				</ul>
+              </nav>              
+          </div>
+          <div class="right_main">
+            <div class="page_container">
+        
+        <section id="favorite" class="jumpto-block">
+           
+            <h2 class="title">收藏</h2><hr>
+            <div class="row_film">
+                <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+            </div>
+                      <div class="row_film">
+                <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                   <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie02.jpeg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">唐红的恋歌</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+            </div>
+            
+
+                </section>
+
+        <section id="history" class="jumpto-block">
+
+          <h2 class="title">历史</h2><hr>
+          <div class="row_film">
+                 <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                 <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+              <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+              <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+          </div>
+             <div class="row_film">
+                 <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+                 <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+              <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+              <div class="single_film">
+                  <div class="movie_card">
+                    <div class="film_post">
+                        <a href="single_film.html"><img src="../img/movie03.jpg"></a>
+                    </div>
+                        <div class="movie_info">
+                       <div class="movie_name">绝海的侦探</div>
+                       <div class="movie_introduction">
+                           <a href="../html/single_film.html" class="note">薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。</a>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+          </div>
+            
+
+                </section>
+
+        <section id="edit" class="jumpto-block">
+
+          <h2 class="title">设置</h2><hr>
+          <div class="personal_card">
+              <div class="personal_photo">
+                  <form id="personal_edit" action="#" method="post">
+                      <div id="personal_img">
+                        <img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+                      </div>
+                      <div class="create_button">
+                          <input class="change" type="file" id="personal_img" name="personal_img">
+                      </div>
+                      <div id="p_publish">
+                      <input class="change2" type="submit" value="确认修改">
+                      </div>
+                  </form>
+              </div>
+              <div class="personal_info">
+                  <span>昵称:</span><p ondblclick="ShowElement(this)">哀伤的七夕</p><br>
+                  <span>简介:</span><p ondblclick="ShowElement(this)">生死与共，却固守着疏离...柯哀大爱不解释</p><br>
+                  <span>豆瓣:</span><p ondblclick="ShowElement(this)">1289798239@qqcom</p>
+                  <div class="tip">Tip：双击可编辑</div>
+              </div>
+            </div>
+          
+
+                </section>        
+
+      </div>
+
+          </div>
+ 
+
+
+
+
+    </div>
+
+    
+
+  </div>
+
+   <script>
+            /*获得btn*/
+            var btn = document.getElementById('btn')
+            var spread = document.getElementById('spread')
+            var iSpread = false
+            /*高度*/
+            var height = spread.scrollHeight
+            /*总时间*/
+            var time = 20;
+            /*间隔*/
+            var interval = 3
+            /*速度*/
+            var speed = height/(time/interval)
+            /*点击事件*/
+            btn.onclick = function (e) {
+                btn.disabled = 'disabled'
+                if(!iSpread){
+                    var speeds = 0
+                    var timer = setInterval(function () {
+                        speeds += speed
+                        spread.style.height = speeds + 'px'
+
+                        if(parseInt(spread.style.height) >=height){
+                            clearTimeout(timer)
+                            btn.disabled = ''
+                        }
+                    },interval)
+                    this.innerHTML = '收起'
+                }else {
+                    var speeds = height
+                    this.innerHTML = '展开'
+                    var timer = setInterval(function () {
+                        speeds -= speed
+                        spread.style.height = speeds + 'px'
+                        if(speeds <= 0){
+                            clearTimeout(timer)
+                            btn.disabled = ''
+                        }
+                    },interval)
+                }
+                iSpread = !iSpread
+            }
+         </script> 
+
+      <script src="../js/personal_center.js"></script>  
+    	<!--悬浮主导航栏-->
+			<script type="text/javascript">
+			$(document).ready(function () {
+    	var topH=$("#top").height();//获取头部高度，top指导航栏上面的部分
+    	var navbg=$("#navbg");//获取导航栏对象
+    	$(window).scroll(function () {
+        if($(window).scrollTop()>topH){//对比滚动的距离与导航栏上面部分的高度大小来动态添加css样式
+            navbg.addClass("scrollNav")//对导航栏添加样式
+        }else{
+            navbg.removeClass("scrollNav")//去掉导航栏添加的样式
+        }
+    });
+});
+</script>
+</body>
+
+</html>

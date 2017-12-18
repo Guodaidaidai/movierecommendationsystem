@@ -1,0 +1,187 @@
+.profile_show
+{
+    float:left;
+    height:800px;
+    width:838px;
+    background-color:white;
+    margin-left:40px;
+    border:thin solid #D0D0D0;
+}
+
+.name_style
+{
+    float:left;
+    margin-left:20px;
+    margin-top: 20px;
+    width:120px;
+    height:40px;
+    color:aliceblue;
+    font-weight: normal;
+    font-size:14px;
+    text-align: center;
+    line-height: 40px;
+    background: linear-gradient(to left ,#108dc7,#ef8e38);
+    border-radius: 5px;
+}
+
+.content
+{
+    float:left;
+    height:600px;
+    width:838px;
+    margin-top: 30px;
+}
+
+.basis
+{
+    float:left;
+    width:800px;
+    height:220px;
+    margin-left:24px;
+}
+
+.protrait
+{
+    float:left;
+    width:160px;
+    height:196px;
+    background-color: #D0D0D0;
+}
+
+.protrait img
+{
+    width:160px;
+    height:160px;
+    float:left;
+}
+
+.change
+{
+    width:160px;
+    height:30px;
+    float:left;
+    margin-top: 8px;
+    font-size: 14px;
+    color:#BB5500;
+}
+
+.text_content
+{
+    float:left;
+    width:500px;
+    height:190px;
+    margin-left:18px;
+}
+
+.p1
+{
+    float:left;
+    width:500px;
+    height:49px;
+    margin-left:18px;
+    text-align:left;
+    font-size:14px;
+    background: linear-gradient(to right ,rgb(155,122,93),rgb(125,122,116));
+    line-height: 49px;
+    color:white;
+}
+
+.p2
+{
+    float:left;
+    width:500px;
+    height:49px;
+    margin-left:18px;
+    text-align:left;
+    font-size:14px;
+    background-color:#ece9e6;
+    line-height: 49px;
+    color:#6C6C6C;
+}
+
+.adding
+{
+    float:left;
+    width:800px;
+    height:220px;
+    margin-left:24px;
+    margin-top: 20px;
+}
+
+.p3
+{
+    float:left;
+    width:323px;
+    height:120px;
+    background-color:#ece9e6;
+    margin-top: 30px;
+}
+
+.p4
+{
+    float:left;
+    width:323px;
+    height:120px;
+    background-color:#ece9e6;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.pattern
+{
+    float:left;
+    width:100px;
+    height:110px;
+    background-color:#ece9e6;
+}
+
+.mmp
+{
+    float:left;
+    width:100px;
+    height:80px;
+    margin-top: 18px;
+    color:cadetblue;
+}
+
+.email
+{
+    float:left;
+    width:200px;
+    height:20px;
+    background-color:#ece9e6;
+    margin-top: 20px;
+    text-align: left;
+    color:#6C6C6C;
+}
+
+.letter
+{
+    float:left;
+    width:200px;
+    height:20px;
+    background-color:#ece9e6;
+    margin-top: 10px;
+    text-align: left;
+    color:#6C6C6C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
