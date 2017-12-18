@@ -1,0 +1,9 @@
+{% if movies %}
+    <ul>
+    {% for m in movies %}
+        <li><a href="/comment/{{ m.m_id }}/">{{ m.m_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

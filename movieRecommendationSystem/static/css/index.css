@@ -1,0 +1,246 @@
+/*轮播图样式*/
+body{
+	 font-family: "微软雅黑","Open Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+.slideshow{
+	width: 100%;
+	height: 450px;
+	text-align: center;
+}
+
+.nav_control
+{
+    float:left;
+    width: 100%;
+	height:450px;
+}
+
+#nav
+{
+    list-style-type: none;
+    float: right;
+    width:220px;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+    padding-top: 60px;
+    margin-right: 20px;
+}
+
+#nav li
+{
+    width: 220px;
+    height: 40px;
+    line-height: 40px;;
+    background-color: #00000080;
+    border-bottom: 0.2 solid white;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}  
+ 
+#nav .now
+{
+   background: linear-gradient(to left ,#108dc7,#ef8e38)
+}
+
+#pic
+{
+    list-style-type: none;
+    height: 410px;
+    width:100%;
+    padding: 0;
+    margin: 0;
+    margin-top: 56px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+     background:#00000050;
+}
+
+#pic img
+{
+    width:82%;
+    height:410px;
+    text-align: center;
+}
+
+
+/*电影内容展示*/
+.movie-show{
+	text-align:center;
+	float: left;
+	max-width: 1550px;
+	height: auto;
+	margin-top: 0px;
+	margin-left: 160px;
+}
+
+header{
+	margin-top: 20px;
+	float: left;
+	font-size: 18px;
+	width: 100%;
+}
+
+header p{
+	width: 80px;
+	float: left;
+	color: rgb(219,121,45);
+	border-bottom: 1px solid rgba(228,121,38,0.7);
+}
+
+.movie-button{
+	margin-top: 5px;
+	font-size: 14px;
+	width: 40px;
+	color: dimgray;
+	background: linear-gradient(to left ,rgba(228,121,38,0.7),rgba(228,121,38,0.3));
+	border-bottom: 1px solid rgba(228,121,38,0.7);
+}
+
+
+.selected1{
+	float: left;
+	width: 98%;
+	min-height: 400px;
+	max-height: 800px;
+	overflow: hidden;
+	margin:0 auto;
+  margin-top:40px;
+}
+
+.selected{
+	float: left;
+	width: 98%;
+	min-height: 400px;
+	max-height: 800px;
+	overflow: hidden;
+	margin:0 auto;
+  margin-top:40px;
+}
+
+.selected-show{
+	float: left;
+	width: inherit;
+	padding:5px 5px;
+	margin: 0px 8px;
+}
+
+.selected-movie{
+	float:left;
+	width: 200px;
+	height: 350px;
+	margin: 15px 21px 3px 21px;
+	border-radius: 5px;
+	box-shadow:  2px 2px 10px #aaaaaa;
+	background-color:rgb(240,240,240);
+	text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.selected-movie img{
+	width:100%;
+	height: 280px;
+	border-radius: 5px 5px 0 0;
+}
+
+.selected-movie hr{
+	margin-top: 7px;
+	margin-left: 3px;
+	margin-right: 3px;
+	border: noe;
+	border-top: 1px solid #999;
+}
+ 
+/*
+.selected-movie ol{
+	padding: 0;
+	padding-left: 3px;
+	float: left;
+	list-style:none;
+	font-size: 5px;
+	width: 100%;
+}
+
+.selected-movie ol li{
+	width: 50%;
+	float: left;
+}
+
+.selected-movie p{
+	padding-right: 3px;
+	width: 50%;
+	float: left;
+}
+
+.selected-movie a p:hover{
+	background-color: #ef8e38;
+}  
+*/
+
+.selected-movie a p{
+	width: 200px;
+	height: 20px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    text-align-last: center;
+	float: left;
+	white-space:nowrap; 
+	text-overflow:ellipsis; 
+	overflow:hidden;
+}
+
+#movie_name{
+	color: black;
+	font-size: 14px;
+}
+
+/*用来限制显示的内容多少*/
+#movie_brefinfo{
+	font-size: 11px;
+    text-decoration:none;
+    display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:12;
+	overflow:hidden;
+	width:200px;
+	height:20px;
+    cursor:pointer;
+     white-space:nowrap;
+	text-overflow:ellipsis;
+	float:left;
+	position:absolute;
+	bottom:0px;
+	background-color:rgba(0,0,0,0.5);
+	/* 背景变灰 */
+    transition:all 0.6s;
+}
+
+#movie_brefinfo:hover
+{
+    color:white;
+    text-decoration: none;
+	width:200px;
+	height:350px;
+	line-height:30px;
+	text-indent:1em;
+	/*显示全部文字*/
+            white-space:normal;
+	word-break:break-word;
+	text-overflow:inherit;
+}
+
+.more{
+	height: 100%;
+	text-align: center;
+}
+
+.bottom-border{
+	margin-bottom: 30px;
+	overflow-x:auto;
+}
