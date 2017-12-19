@@ -1,24 +1,28 @@
+
 <!DOCTYPE HTML>
+{% load static %}
 <html>
     <head>
        <meta charset="utf-8">
        <title>院线比较</title>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../css/component.css">
-        <link rel="stylesheet" type="text/css" href="../css/subnav.css">
-        <link rel="stylesheet" href="../css/single_film2.css">
-        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/cinema_comparing.css">
-  	    <script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css"%}">
+        <!--<link rel="stylesheet" type="text/css" href="../css/component.css">-->
+        <link rel="stylesheet" type="text/css" href='{% static "css/component.css"%}'>
+        <link rel="stylesheet" type="text/css" href='{% static "css/subnav.css"%}'>
+        <link rel="stylesheet" href='{% static "/css/single_film2.css"%}'>
+        <link rel="stylesheet" type="text/css" href='{% static "css/font-awesome.min.css"%}'>
+        <link rel="stylesheet" type="text/css" href='{% static "css/cinema_comparing.css"%}'>
+  	    <script src='{% static "js/jquery.min.js"%}'></script>
+		<script src='{% static "js/bootstrap.min.js"%}'></script>
+        <script src='{% static "js/bootstrap.min.js"%}'></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.7.min.js"></script>
     </head>
 
 <body>
 	<div id="top"></div>
 	<div id="navbg">
     <nav class="navigation_bar">
-      <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
+      <div class="logo_img"><a href="../index.html"><img src='{% static "/img/logo.png"%}'></a></div>
        <ul>
          <li><a href="../index.html">主页</a></li>
          <li><a href="../html/recommanding_film.html">为你挑选</a></li>
@@ -35,7 +39,7 @@
 					<span><a href="html/regisiter.html">注册</a></span>
 					-->
 					<div class="portrait dropdown">
-						<img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+						<img src='{% static "img/%E5%B0%8F%E5%93%80.jpeg"%}'>
 						<div class="dropdown-content">
 							<p><a href="../html/personal_center.html">个人中心</a></p>
 							<p><a href="../html/login.html">退出</a></p>
@@ -49,10 +53,10 @@
 <div class="wrapper">
   <div class="style">
     <div class="symbol">
-        <img src="../img/quotation2.png">
+        <img src='{% static "img/quotation2.png"%}'>
       </div>
   <div class="k1">
-    <div class="movie_name">名侦探柯南---绝海的侦探</div>
+    <div class="movie_name">{{movie.m_name}}</div>
       <div class="a1">
       <p>收藏</p>
        <div class="roundedOne">
@@ -89,19 +93,19 @@
                            <div class="c1">
                              <div class="movie_card">
                                <div class="movie_post">
-                                <img src="../img/movie03.jpg">
+                                <img src="{{movie.post_url}}">
                                </div>
-                                <div class="name">绝海的侦探
-                                 </div>
+                               <!-- <div class="name">{{movie.m_name}}
+                                 </div>-->
                               </div>
                               <div class="movie_info">
                                 <div class="info_content">
                                   <span class="p1">
-                                  <span class="p2">导演：</span>
-                                  <span class="attrs">静野孔文</span>
+                                  <span class="p2">名字：</span>
+                                  <span class="attrs">{{movie.m_name}}</span>
                                   </span>
                                   <br>
-                                  <span class="p1">
+                                  <!--<span class="p1">
                                   <span class="p2">编剧：</span>
                                   <span class="attrs">大仓崇裕</span>
                                   </span>
@@ -110,16 +114,16 @@
                                   <span class="actor">主演：</span>
                                   <span class="attrs">高山南、山崎和佳奈</span>
                                   </span>
+                                  <br>-->
+                                  <span class="p1">类型：{{movie.m_type}}</span>
                                   <br>
-                                  <span class="p1">类型：动画</span>
+                                  <span class="p1">制片国家/地区：{{movie.m_country}}</span>
                                   <br>
-                                  <span class="p1">制片国家/地区：日本</span>
-                                  <br>
-                                  <span class="p1">语言：日文/中文</span>
+                                  <!--<span class="p1">语言：日文/中文</span>
                                   <br>
                                   <span class="p1">片长：110分钟</span>
-                                  <br>
-                                  <span class="p1">其他：无</span>
+                                  <br>-->
+                                  <span class="p1">时间：{{movie.m_year}}</span>
                                   <br>
                                 </div>
                              </div>
@@ -138,7 +142,7 @@
           </div>
         <!-- el end -->
         <!-- el start -->
-          <div class="el">
+        <!--  <div class="el">
             <div class="el__overflow">
                 <div class="el__inner">
                     <div class="el__bg"></div>
@@ -162,6 +166,7 @@
                 </div>
             </div>
         </div>
+           -->
         <!-- el end -->
         <!-- el start -->
         <div class="el">
@@ -174,1274 +179,124 @@
                     <div class="el__content">
                         <div class="el__text">
                             <nav class="menu">
-	<ul>
-		<li>
-		    <a class="hide" href="#">今日</a>
-			<ul>
-				<li><a href="#" title="">海上明珠国际影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">耀莱成龙国际影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">金逸影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">德信影城</a>
-                    <ul class="left_side">
-				<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">SFC上影影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">龙之梦影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-			</ul>
-		</li>
-		<li>
-			<a class="hide" href="index.html">*****</a>
-		</li>
-		<li>
-			<a class="hide" href="#">明日</a>
-			<ul>
-				<li><a href="#" title="">海上明珠国际影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">耀莱成龙国际影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">金逸影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">德信影城</a>
-                    <ul class="left_side">
-				<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">SFC上影影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">龙之梦影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-			</ul>
-		</li>
-		<li>
-			<a class="hide" href="#">*****</a>
-		</li>
-		<li>
-			<a class="hide" href="#">后日</a>
-			<ul>
-				<li><a href="#" title="">海上明珠国际影城</a>
-                    <ul class="left_side">
-			<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">耀莱成龙国际影城</a>
-                    <ul class="left_side">
-				<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">金逸影城</a>
-                    <ul class="left_side">
-						<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">德信影城</a>
-                    <ul class="left_side">
-					<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">SFC上影影城</a>
-                    <ul class="left_side">
-			<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-				<li><a href="#" title="">龙之梦影城</a>
-                    <ul class="left_side">
-			<div class="z1">
-                            <div class="film">
-                                <div class="film_time">09：50-11：35</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">10：20-12：05</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：00-12：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">11：55-13：40</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">12：25-14：10</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">13:05-14：50</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                            <div class="film">
-                                <div class="film_time">14：25-15：45</div>
-                                <div class="film_price">
-                                    <span>猫眼电影</span><p>￥48</p>
-                                </div>
-                                <div class="film_price">
-                                    <span>格瓦拉</span><p>￥28</p>
-                                </div>
-                            </div>
-                        </div>
-					</ul>
-                </li>
-			</ul>
-		</li>
-		<li>
-			<a class="hide" href="#">*****</a>
-		</li>
+	<ul id="price_info">
+
 	</ul>
+<!--........................zhang.......................-->
+<script >
+
+
+    var m_id={{ m_id }};//m_id信息一定存在
+    var c_id;
+    var date;
+    var cinemas ={{cinema_dis_list|safe}};//cinema信息一定有
+    var dises={{dis|safe}};
+
+    for(var i=0;i<cinemas.length&&i<6;i++){
+        var li=$("<li></li>");
+        var d;
+        if (dises.length!=0){
+            d=dises[i]
+        }else{
+            d=""
+        }
+        var a=$("<a></a>").attr("class","hide").text(cinemas[i]["fields"]["name"]+d).attr("href","#").attr("id",cinemas[i]["pk"]);
+        li.append(a);
+        $("#price_info").append(li);
+    }
+
+
+
+</script>
+<script>
+    $("#price_info").on("mouseover","a",function(){
+        var first=1;
+        var el=$(this);
+
+        if(el.attr("class")=="hide"){//点击的是影院
+            first=0;//日期默认为第一天
+            c_id=el.attr("id");
+        }else {//点击的是时间
+            date = el.text();
+        }
+
+        $.get("/zhang/ajax/price_in_cinema/",{"m_id":m_id,"c_id":c_id,"date":date,"first":first},function(data){
+
+            dataObj=JSON.parse(data);
+            mes=dataObj.message;//用来判断是否有排片信息
+
+            dates=dataObj.dates;//获取到这家电影院全部的dates信息.
+
+
+
+
+            if(first==0){//点击影院的响应事件，更新date值
+
+                var ul=$("<ul></ul>");
+                if(dates.length==0){//该影院不放映该电影
+                    var li=$("<li></li>");
+                    var div=$("<div></div>").text("这家电影院没有放映该电影噢，试试其他影院吧~");
+                    li.append(div)
+                    ul.append(li)
+
+                }else {
+                    for (var i = 0; i < dates.length; i++) {
+                        var li = $("<li></li>");
+                        var a = $("<a></a>").attr("href","#").attr("title","").text(dates[i]);
+                        li.append(a);
+                        ul.append(li)
+
+                    }
+                }
+                el.after(ul)
+
+            }else{//点击日期的响应时间，更新票价信息.
+                var ul=$('<ul></ul>').attr("class","left_side");
+                var z1_div=$('<div></div>').attr("class","z1");
+
+
+                if(mes!=undefined){//该日期没有电影
+                    //alert(mes)
+                    var film_div=$('<div></div>').attr("class","film").text(mes);
+                    z1_div.append(film_div);
+                }else{
+                    prices=JSON.parse(dataObj.prices);
+
+                    for (var i=0;i<prices.length;i++) {
+                       // alert(i);
+                        var film_div = $('<div></div>').attr("class", "film");
+                        var time1_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["start_time"]);
+                        var time2_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["end_time"]);
+                        var halln_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["hall_name"]);
+                        var hallt_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["hall_type"]);
+                        var price_div=$('<div></div>').attr("class","film_price").text(prices[i]["fields"]["price"]+"元");
+                        var w_name_div=$('<div></div>').attr("class","film_price").text(prices[i]["fields"]["w_name"]);
+                        film_div.append(time1_div);
+                        film_div.append(time2_div);
+                        film_div.append(halln_div);
+                        film_div.append(hallt_div);
+                        film_div.append(w_name_div);
+                        film_div.append(price_div);
+
+                        z1_div.append(film_div);
+                    }
+
+                }
+                ul.append(z1_div);
+                el.after(ul);
+
+            }
+
+
+
+
+        })
+
+    });
+
+
+</script>
+<!--........................zhang.......................-->
 </nav>
                         </div>
                         <div class="el__close-btn"></div>

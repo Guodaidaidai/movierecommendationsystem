@@ -1,0 +1,60 @@
+
+
+<p id="demo"></p>
+<button onclick="getLocation()">获取地址</button>
+
+<h1>{{ movie.m_name }}</h1><br/>
+
+<a href="{% url 'zhang:resource' movie.m_id %}" >电影资源</a>
+<a href="#" id="resource" onclick="go()">影院信息</a>
+
+{% if movie.m_type is  not None %}
+    <h2>{{ movie.m_type }}<br/>
+    {{ movie.m_year }}<br/>
+    {{ movie.m_country }}<br/>
+    <img src="{{ movie.post_url }}"></img>
+    </h2>
+
+{% endif %}
+
+<script>
+
+
+
+    function go(){
+
+        navigator.geolocation.getCurrentPosition(onSuccess);
+
+    }
+    function getLocation() {
+
+
+    if (navigator.geolocation) {
+        //浏览器支持geolocation
+        navigator.geolocation.getCurrentPosition(onSuccess,onFail);
+    } else {
+        //浏览器不支持geolocation
+        alert('您的浏览器不支持地理位置定位');
+    }
+}
+//失败时
+function onFail(error){
+     var m_id={{movie.m_id}};
+     alert("用户不同意");
+     window.location.href="http://localhost:8000/zhang/"+m_id+"/0.0/0.0/price";
+}
+
+//成功时
+function onSuccess(position) {
+    //返回用户位置
+    //经度
+    var longitude = position.coords.longitude;
+    //纬度
+    var latitude = position.coords.latitude;
+    var m_id={{movie.m_id}}
+     window.location.href="http://localhost:8000/zhang/"+m_id+"/"+longitude+"/"+latitude+"/price";
+
+}
+
+
+</script>
