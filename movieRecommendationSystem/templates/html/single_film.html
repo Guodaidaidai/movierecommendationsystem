@@ -1,23 +1,27 @@
+{% load static %}
+{% if movie %}
+    {% if comments %}
 <!DOCTYPE HTML>
 <html>
     <head>
        <meta charset="utf-8">
        <title>单个电影</title>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="../css/component.css">
-        <link rel="stylesheet" href="../css/single_film2.css">
-        <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/single_film.css">
-  	    <script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/component.css" %}">
+        <link rel="stylesheet" href="{% static "css/single_film2.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/single_film.css" %}">
+  	    <script src="{% static "js/jquery.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+        <script src="{% static "js/echarts.js" %}"></script>
     </head>
 
 <body>
 	<div id="top"></div>
 	<div id="navbg">
     <nav class="navigation_bar">
-      <div class="logo_img"><a href="../index.html"><img src="../img/logo.png"></a></div>
+      <div class="logo_img"><a href="../index.html"><img src="{% static "img/logo.png" %}"></a></div>
        <ul>
          <li><a href="../index.html">主页</a></li>
          <li><a href="../html/recommanding_film.html">为你挑选</a></li>
@@ -34,7 +38,7 @@
 					<span><a href="html/regisiter.html">注册</a></span>
 					-->
 					<div class="portrait dropdown">
-						<img src="../img/%E5%B0%8F%E5%93%80.jpeg">
+						<img src="{% static 'img/%E5%B0%8F%E5%93%80.jpeg'%}">
 						<div class="dropdown-content">
 							<p><a href="../html/personal_center.html">个人中心</a></p>
 							<p><a href="../html/login.html">退出</a></p>
@@ -48,12 +52,12 @@
 <div class="wrapper">
   <div class="style">
     <div class="symbol">
-        <img src="../img/quotation2.png">
+        <img src={{ movie.post_url }}>
       </div>
   <div class="k1">
     <ul>
         <li>
-            <a class="movie_name">名侦探柯南---唐红的恋歌</a>
+            <a class="movie_name">{{ movie.m_name }}</a>
             <ol class="subnav">
                 <li><a href="#">观影链接</a></li>
                 <li><a href="#">影评链接</a></li>
@@ -87,37 +91,23 @@
                            <div class="c1">
                              <div class="movie_card">
                                <div class="movie_post">
-                                <img src="../img/movie02.jpeg">
+                                <img src={{ movie.post_url }}>
                                </div>
-                                <div class="name">唐红的恋歌
+                                <div class="name">{{ movie.m_name }}
                                  </div>
                               </div>
                               <div class="movie_info">
                                 <div class="info_content">
-                                  <span class="p1">
-                                  <span class="p2">导演：</span>
-                                  <span class="attrs">静野孔文</span>
-                                  </span>
+
+                                  <span class="p1">类型：{{ movie.m_type }}</span>
                                   <br>
-                                  <span class="p1">
-                                  <span class="p2">编剧：</span>
-                                  <span class="attrs">大仓崇裕</span>
-                                  </span>
-                                  <br>
-                                  <span class="p1">
-                                  <span class="actor">主演：</span>
-                                  <span class="attrs">高山南、山崎和佳奈</span>
-                                  </span>
-                                  <br>
-                                  <span class="p1">类型：动画</span>
-                                  <br>
-                                  <span class="p1">制片国家/地区：日本</span>
+                                  <span class="p1">制片国家/地区：{{ movie.m_country }}</span>
                                   <br>
                                   <span class="p1">语言：日文/中文</span>
                                   <br>
                                   <span class="p1">片长：112分钟</span>
                                   <br>
-                                  <span class="p1">其他：无</span>
+                                  <span class="p1">年份 {{ movie.m_year }}</span>
                                   <br>
                                 </div>
                              </div>
@@ -172,7 +162,6 @@
                     <div class="el__content">
                         <div class="el__text">
                           <div class="comment_photo">
-                            <img src="../img/%E5%BD%B1%E8%AF%84%E5%88%86%E6%9E%90%E5%9B%BE.jpg">
                            </div>
                         </div>
                         <div class="el__close-btn"></div>
@@ -198,14 +187,7 @@
                     <div class="el__content">
                         <div class="el__text">
                             <div class="comment">
-                                唐红的恋歌：和叶的红叶物语
-评分：7.5/ 10分，4/ 5分。
-懒了快一个月，终于肯提笔写文。截止到最新的柯南漫画连载中，兰用一个吻回应了许多年前新一在伦敦的表白，二人从此正式宣告交往，了却了漫粉二十年来的心愿。送吻的地点碰巧又是平次想要给和叶表白的理想位置，于是这个笨小子不得不再找新的地方进行表白。漫画中我们见证了高木佐藤，白鸟小林的略滑稽恋爱物语，还有园子与京极真的感情，反而是平次与和叶，各种温吞纠结，比主角新兰还矫情，一直拖拖拉拉，没有多少进展。因此，剧场版来这么一场久违的平和物语，也理所应当，毕竟漫画里面能和人鱼事件相提并论的篇章太少太少。
-这部剧场版说是绀碧之棺之后最好的剧场版一点也不为过，也最专注于推理，基本上放弃了动作元素对案件的干扰。由于有推理小说家参与编剧，所以案件和推理的水准均大幅回升，案子本身也有点意思，只是比起柯南早期的经典案件来说，过于套路了。近几年动作片化的倾向在本片中明显被抑制住了，死神小学生反物理的动作戏只有两场，无伤大雅。这部剧场版在各种元素的分配上做到了近几年最佳，动作戏沦为配角，推理上升到主体，爱情戏穿插其中，各部分时长分布的也很合理。然而，正是因为推理小说家的参与，让本片又有种电视剧化的倾向。小说中、漫画里那种靠角色间你来我往的对白和内心独白交代推理的思维过程与案件细节的方式如果出现在电视剧中，并不会招致太多反感，但这毕竟是一部电影。用电影的方式来叙事，减少台词信息量，增加画面信息量才是正确的做法，不然就会像本片一样，推理相关剧情略显啰嗦，看久了还会疲劳。但本片在处理和叶与红叶的歌牌对决时的镜头使用就很不错，保持了较快节奏的剪辑，又保证了信息的传达。说到底，这部电影中最想看到的应该是爱情戏才对。新兰在剧场版中恩爱都快秀烂了 ，包括本片中也没忘秀一把恩爱，平次和叶却只在迷宫十字路口中有一段幼年拍球的情缘。本片竟然还搞出了红叶这个信誓旦旦的第三者插足，叫嚣着平次幼年对其许下的听错的诺言。这完全是狗血爱情片的设定啊。但凭借着对柯南漫画和剧场版中经典桥段与台词的致敬，还有和叶对平次的执着以及吃醋是蜜汁怒气，这部电影的爱情戏并不无聊。特别在最后，平次喊出了人鱼事件中的经典爱情对白，不得不让人感慨这俩人为何总要遇上这么多波折。唐红的恋歌发生在火红季节的京都，而迷宫的十字路口则是樱花盛开的时节，角色们的心境各不相同。后者上演了新兰月夜下的静谧重逢，前者则是伴随着爆炸的热烈情感。始终不变的唯有仓木麻衣的主题曲，还是那么好听和应景。
-（更多精彩内容，尽在史歌吹壳子。关注微博：Mosquito史歌，公众号：shige_show）
-（史歌出品，原创文章，未经授权，不得转载。）
-文：史歌 
-2017年10月17日
+                                {{ comments.comments }}
                             </div>
                         </div>
                         <div class="el__close-btn"></div>
@@ -266,10 +248,71 @@ $(document).ready(function () {
     });
 });
 </script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart;
+        myChart = echarts.init(document.getElementsByClassName("comment_photo")[0]);
+
+        // 指定图表的配置项和数据
+        var option = {
+     title : {
+        text: '短评情感倾向分析图',
+         subtext: '根据热门豆瓣短评的情感倾向显示人们的喜爱程度',
+        x:'220px',
+
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        x : '260px',
+        y : 'bottom',
+        data:['good','middle','bad']
+    },
+    toolbox: {
+        show : true,
+        x:'400px',
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'影评分析',
+            type:'pie',
+            radius : [20, 70],
+            center:['68%', '48%'],
+            roseType : 'area',
+            data:[
+                {% if sentiment %}
+                {value:{{ sentiment.good_count }}, name:'good'},
+                {value:{{ sentiment.middle_count }}, name:'middle'},
+                {value:{{ sentiment.bad_count }}, name:'bad'}
+                {% endif %}
+            ]
+        }
+    ]
+};
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 </body>
 </html>        
         
-        
+ {% endif %}
+{% endif %}
         
         
         
