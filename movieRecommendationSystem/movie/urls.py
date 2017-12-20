@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^comment/',include('comment.urls',namespace='comment')),
+    url(r'^zhang/',include('comment.urls_zhang')),
 ]

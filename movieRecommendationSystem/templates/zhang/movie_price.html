@@ -1,0 +1,117 @@
+<html>
+<head>
+    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.7.min.js"></script>
+</head>
+<body>
+
+
+<div>
+    <p>{{ movie.m_name }}</p>
+    <div id="date"></div>
+    <div id="cinema" ></div>
+</div>
+<div>
+    <div id="price" ></div>
+    <div id="test"></div>
+</div>
+<script >
+
+    function updateDates(dates) {
+        $("#date").empty();
+        for (var i=0;i<dates.length;i++){
+        var a=$("<a></a>").text(dates[i]).attr('href',"#");
+        $("#date").append(a," ");
+    }
+    }
+
+    function updateprices(dates) {
+        $("#price").empty();
+        for (var i=0;i<prices.length;i++){
+            var text=$("<p></p>").text(prices[i]["fields"]["date"]+" "+prices[i]["fields"]["w_name"]+
+                    prices[i]["fields"]["start_time"]+prices[i]["fields"]["end_time"]+prices[i]["fields"]["price"]+"\n");
+            $("#price").append(text);
+        }
+    }
+
+    var m_id={{ m_id }};//m_id信息一定存在
+    var c_id;
+    var date;
+    var cinemas ={{cinema_dis_list|safe}};//cinema信息一定有
+    for(var i=0;i<cinemas.length;i++){
+        var a=$("<a></a>").text(cinemas[i]["fields"]["name"]).attr("href","#").attr("id",cinemas[i]["pk"]);
+        $("#cinema").append(a," ");
+    }
+    if(cinemas.length>0){
+        c_id=cinemas[0]["pk"]
+    }
+
+
+    var dates={{ dates|safe }};
+    updateDates(dates);
+
+    if(dates.length>0){
+        date=$("#date").find("a:first").text()
+    }
+
+
+    var mes='{{ message|safe }}';
+    if (mes!=''){//没有排片
+        document.getElementById("price").append('{{ message }}');
+    }else {
+        var prices={{ prices|safe }};
+        updateprices(prices);
+    }
+
+</script>
+<script>
+
+    $("#date").on("click","a",function(){
+        $("#test").empty();
+        $("#test").append("出发了这个空函数的点击事件");
+    });
+
+    $("#cinema,#date").on('click',"a",function(){//点击影院的时候，需要获取到dates信息
+        var first=1;
+        var el=$(this);
+
+        if(el.parent().attr("id")=="cinema"){
+            first=0;//日期默认为第一天
+            c_id=el.attr("id");
+        }else {
+            date = el.text();
+        }
+
+        $.get("/zhang/ajax/price_in_cinema/",{"m_id":m_id,"c_id":c_id,"date":date,"first":first},function(data){
+            $("#price").empty();
+            dataObj=JSON.parse(data);
+            mes=dataObj.message;
+
+            dates=dataObj.dates;
+
+            updateDates(dates);
+
+
+            //更新票价信息
+
+            if (mes==undefined){
+                prices=JSON.parse(dataObj.prices);
+                updateprices(prices)
+            }else{
+                $("#price").append(mes)
+            }
+
+
+        })
+
+
+    })
+
+</script>
+
+</body>
+
+
+</html>
+
+
+
