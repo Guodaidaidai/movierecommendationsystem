@@ -86,5 +86,46 @@ class User(models.Model):
     def __str__(self):
         return str(self.u_id)
 
+class movie_resource(models.Model):
+    c_id=models.IntegerField(primary_key=True)
+    movie=models.ForeignKey(MovieInfo,db_column="m_id")
+    resource=models.CharField(max_length=1000)
+    class Meta:
+        db_table="movie_resource"
+
+
+class cinema_info(models.Model):
+    c_id=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=50)#影院name
+    area=models.CharField(max_length=10)#普陀区
+    location=models.CharField(max_length=50)#具体地址
+    longitude=models.FloatField()#经纬度
+    latitude=models.FloatField()
+    class Meta:
+        db_table="cinema_info"
+
+
+
+class price_info(models.Model):
+    p_id=models.IntegerField(primary_key=True)
+    movie=models.ForeignKey(MovieInfo,db_column="m_id")
+    cinema=models.ForeignKey(cinema_info,db_column="c_id")
+    w_name=models.CharField(max_length=20)
+    date=models.CharField(max_length=20)
+    hall_name=models.CharField(max_length=20)
+    hall_type=models.CharField(max_length=20)
+    start_time=models.CharField(max_length=20)
+    end_time=models.CharField(max_length=20)
+    price=models.IntegerField()
+    class Meta:
+        db_table="price_info"
+
+
+
+
+
+
+
+
 
 

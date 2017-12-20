@@ -1,0 +1,9 @@
+{% if message %}
+    <h1>{{ message }}</h1>
+{% else %}
+
+    {% for res in resources %}
+        {{ res.movie.m_name }}
+        <h3>{{ res.resource }}</h3><br/>
+    {% endfor %}
+{% endif %}
