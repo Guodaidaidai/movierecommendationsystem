@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>首页</title>
-<script src="js/jquery.min.js"></script>
-<link rel="stylesheet" href="css/3D.css" />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/3D.css' %}" />
 </head>
 <body>
 
@@ -15,17 +16,17 @@
   </div>
 	<div class="tag_nav">
 		<ul>
-			<li><a class="btn-6" href="../html/recommanding_film.html">为你挑选<span></span></a></li>
-			<li><a class="btn-6" href="../html/hot_flim.html">优秀电影<span></span></a></li>
-			<li><a class="btn-6" href="../html/shown_film.html">热映将映<span></span></a></li>
+			<li><a class="btn-6" href="/comment/recommend/">为你挑选<span></span></a></li>
+			<li><a class="btn-6" href="/comment/hot_film/">优秀电影<span></span></a></li>
+			<li><a class="btn-6" href="/comment/shown_film/">热映将映<span></span></a></li>
 		</ul>
 	</div>
 </div>
 <canvas class="canvas"></canvas>
 
-<script type="text/javascript" src="js/canvas.js"></script> 
-<script src="../js/3Ddata.js"></script> 
-<script src="js/3D.js"></script>
+<script type="text/javascript" src="{% static 'js/canvas.js' %}"></script>
+<script src="{% static 'js/3Ddata.js' %}"></script>
+<script src="{% static 'js/3D.js' %}"></script>
 	<script type="text/javascript">
 		$(function () {
 		    $('.btn-6').on('mouseenter', function (e) {

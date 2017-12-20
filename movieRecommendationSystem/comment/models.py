@@ -35,9 +35,6 @@ class MovieInfo(models.Model):
 
 
 
-
-
-
 class Sentimentclassify(models.Model):
     m = models.ForeignKey(MovieInfo, models.DO_NOTHING)
     index = models.AutoField(primary_key=True)
@@ -86,5 +83,15 @@ class User(models.Model):
     def __str__(self):
         return str(self.u_id)
 
+class MovieRating(models.Model):
+    m_id = models.AutoField(primary_key=True)
+    rating = models.FloatField(null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'movie_rating'
+
+    def __str__(self):
+        return str(self.m_id)
 
 
