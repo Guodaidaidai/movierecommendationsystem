@@ -143,15 +143,36 @@ def getUserOnshowRating(userId, k, movieIds):
             movies.append(MovieInfo.objects.get(m_id=movieId))
     return movies
 
-def loadGoodMovie(k):
+def loadGoodMovie(k,type):
     result = MovieRating.objects.order_by('-rating')
     movieIds = list(result.values_list('m_id', flat=True))
-    movieIds = movieIds[0:k]
-    movies=[]
-    for item in movieIds:
-        movies.append(MovieInfo.objects.get(m_id=item))
+    movies = []
+    if type=="全部":
+        movieIds = movieIds[0:k]
+        for item in movieIds:
+            movies.append(MovieInfo.objects.get(m_id=item))
+    else:
+        n = 0
+        for movieId in movieIds:
+            m = MovieInfo.objects.get(m_id=movieId)
+            if type in m.m_type:
+                movies.append(m)
+                n = n+1
+            if n==k:
+                break
     return movies
 
 def searchMovie(key):
     result = MovieInfo.objects.filter(m_name__contains=key)
     return result
+
+def type_select(type,scale):
+    if scale == "热映":
+        year = datetime.datetime.now().year
+        month = datetime.datetime.now().month
+        string = str(year) + '-' + str(month)
+        result = MovieInfo.objects.filter(m_year__contains=string, m_type__contains=type)
+    else:
+        result = MovieInfo.objects.filter(m_type__contains=type)
+    movieIds = list(result.values_list('m_id', flat=True))
+    return movieIds
