@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from . import views_zhang
 
 urlpatterns=[
     url(r'^$',views.movie_list,name='movie_list'),
@@ -14,4 +15,5 @@ urlpatterns=[
     url(r'^personal_center/$', views.personal_center, name='personal_center'),
     url(r'^personal_setting/$', views.personal_setting, name='personal_setting'),
     url(r'^search/(.+)/$', views.search, name='search'),
+
 ]

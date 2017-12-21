@@ -1,6 +1,7 @@
 from .models import *
 from math import sqrt
 import datetime
+import random
 
 def loadShortComments() :
     result = ShortComments.objects.all().values_list('u_id','m_id','star')
@@ -121,23 +122,25 @@ def getRating(prefer1, userId, itemId, knumber=20, similarity=sim_pearson):
 
 def getUserOnshowRating(userId, k, movieIds):
     prefer = loadShortComments()
-    scores = []
     movies = []
-    hadComment = []
-    for itemId in prefer[userId]:
-        hadComment.append(itemId)
-
-    for movieId in movieIds:
-        if movieId not in hadComment:
-            rating = getRating(prefer, userId, movieId, 20)
-            scores.append((rating, movieId))
-
-    scores.sort()
-    scores.reverse()
-
-    kscore = scores[0:k]
-    for item in kscore:
-        movies.append(MovieInfo.objects.get(m_id=item[1]))
+    if userId in prefer:
+        scores = []
+        hadComment = []
+        for itemId in prefer[userId]:
+            hadComment.append(itemId)
+        for movieId in movieIds:
+            if movieId not in hadComment:
+                rating = getRating(prefer, userId, movieId, 20)
+                scores.append((rating, movieId))
+        scores.sort()
+        scores.reverse()
+        kscore = scores[0:k]
+        for item in kscore:
+            movies.append(MovieInfo.objects.get(m_id=item[1]))
+    else:
+        randomIds = random.sample(movieIds,k)
+        for movieId in randomIds:
+            movies.append(MovieInfo.objects.get(m_id=movieId))
     return movies
 
 def loadGoodMovie(k):
