@@ -11,12 +11,12 @@
 {
     float:left;
     width:1000px;
-    min-height:100px;
+    min-height:50px;
     margin-top:40px;
     margin-left:180px;
+    background-color:#f8dc89;
     border-radius: 3px;
     box-shadow: 1px 0 0 1px #E0E0E0;
-    background-color:#f8dc89;
 }
 
 .category1
@@ -42,7 +42,7 @@
 .category_content1
 {
     float:left;
-    background-color:#efa65a;
+    background-color: #efa65a;
     width:62px;
     height:33px;
     margin-top: 5.5px;
@@ -137,7 +137,7 @@
     font-size:13px;
     border:none;
     border-radius: 5px;
-    background-color: #efa65a;
+    background-color:#efa65a;
     color:#00000080;
 }
 
@@ -161,7 +161,7 @@
 {
     width:1200px;
     height:310px;
-    float:left;  
+    float:left;
     margin-top: 20px;
 }
 
@@ -177,7 +177,7 @@
     width:180px;
     height:288px;
     float:left;
-     background-color: #c2baba;
+    background-color: #c2baba;
     box-shadow: 2px;
     border-radius: 2px;
     position: relative;
@@ -188,7 +188,7 @@
 {
     width:204px;
     height:238px;
-    float:left;    
+    float:left;
 }
 
 .movie_post img
@@ -218,20 +218,21 @@
     float:left;
     width:180px;
     text-align: center;
-   height:20px;
+    height:20px;
     text-align: center;
     font-size: 14px;
     margin-top: 7px;
 }
 
+
 .movie_introduction
 {
     float:left;
-    width:204px;
+    width:180px;
     height:15px;
 }
 
-.note 
+.note
 {
     color:#FFFFFF;
 	width:180px;
@@ -256,6 +257,7 @@
 	-webkit-box-orient:vertical;
 	-webkit-line-clamp:10;
 }
+
 .note:hover {
     color:white;
     text-decoration: none;
