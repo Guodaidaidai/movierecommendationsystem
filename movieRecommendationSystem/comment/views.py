@@ -29,7 +29,7 @@ def sentiment_classify(request, m_id):
         sentiment = get_object_or_404(Sentimentclassify, m=m_id)
         comments = ShortComments.objects.filter(m=m_id).first()
         return render(request, '../templates/html/single_film.html',
-                      {'sentiment': sentiment, 'movie': movie, 'comments': comments,'user': user})
+                      {'sentiment': sentiment, 'movie': movie, 'comments': comments, 'user': user})
 
 
 def logintest(req):
@@ -69,9 +69,19 @@ def recommend(req):
         return HttpResponseRedirect('/comment/search/%s' % key)
     else:
         user = req.user
-        # movie = MovieInfo.objects.all()[15949:15965]
         movieIds = loadMovies()
-        movie = getUserOnshowRating(user.id, 20, movieIds)
+        movie = getUserOnshowRating(user.id, 30, movieIds)
+        return render(req, '../templates/html/recommanding_film.html', {'movie': movie, 'user': user})
+
+
+def recommend_type(req, type):
+    if req.method == 'POST':
+        key = req.POST.get('movie')
+        return HttpResponseRedirect('/comment/search/%s' % key)
+    else:
+        user = req.user
+        movieIds = type_select(type, "全部")
+        movie = getUserOnshowRating(user.id, 30, movieIds)
         return render(req, '../templates/html/recommanding_film.html', {'movie': movie, 'user': user})
 
 
@@ -81,8 +91,17 @@ def hot_film(req):  # 优秀电影
         return HttpResponseRedirect('/comment/search/%s' % key)
     else:
         user = req.user
-        # hot_entries = MovieInfo.objects.all()[15949:15961]
-        movie = loadGoodMovie(20)
+        movie = loadGoodMovie(30, "全部")
+        return render(req, '../templates/html/hot_flim.html', {'movie': movie, 'user': user})
+
+
+def hot_film_type(req, type):
+    if req.method == 'POST':
+        key = req.POST.get('movie')
+        return HttpResponseRedirect('/comment/search/%s' % key)
+    else:
+        user = req.user
+        movie = loadGoodMovie(30, type)
         return render(req, '../templates/html/hot_flim.html', {'movie': movie, 'user': user})
 
 
@@ -92,14 +111,47 @@ def shown_film(req):  # 热映电影
         return HttpResponseRedirect('/comment/search/%s' % key)
     else:
         user = req.user
-        # shown_entries = MovieInfo.objects.all()[15949:15961]
         movieIds = loadOnshowMovie()
-        shown_entries = []
+        movie = getUserOnshowRating(user.id, 30, movieIds)
+        return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/shown_film/"})
+
+
+def shown_film_all(req):
+    if req.method == 'POST':
+        key = req.POST.get('movie')
+        return HttpResponseRedirect('/comment/search/%s' % key)
+    else:
+        user = req.user
+        movieIds = loadOnshowMovie()
+        movie = []
         for id in movieIds:
-            shown_entries.append(MovieInfo.objects.get(m_id=id))
-        movie = getUserOnshowRating(user.id, 20, movieIds)
-        return render(req, '../templates/html/shown_film.html',
-                      {'shown_entries': shown_entries, 'movie': movie, 'user': user})
+            movie.append(MovieInfo.objects.get(m_id=id))
+    return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/all/"})
+
+
+def shown_film_type(req, type):
+    if req.method == 'POST':
+        key = req.POST.get('movie')
+        return HttpResponseRedirect('/comment/search/%s' % key)
+    else:
+        user = req.user
+        top = "/shown_film/"
+        movieIds = type_select(type, "热映")
+        movie = getUserOnshowRating(user.id, 30, movieIds)
+    return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': top})
+
+
+def shown_film_all_type(req, type):
+    if req.method == 'POST':
+        key = req.POST.get('movie')
+        return HttpResponseRedirect('/comment/search/%s' % key)
+    else:
+        user = req.user
+        movieIds = type_select(type, "热映")
+        movie = []
+        for id in movieIds:
+            movie.append(MovieInfo.objects.get(m_id=id))
+        return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/all/"})
 
 
 def personal_center(req):

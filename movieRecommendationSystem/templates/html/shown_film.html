@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 {% load staticfiles %}
-{% if movie %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -46,42 +45,43 @@
 
 <div class="main_body">
     <div id="category">
-        <div class="category1">
+        <div>
             <div class="category_name1">频道：</div>
-            <div class="category_content1">猜你想看</div>
-            <div class="category_content1">热映将映</div>
-            <br>
+            <ul>
+                <li><a href="/comment/shown_film/" class="category_content1">猜你想看</a></li>
+                <li><a href="/comment/all/" class="category_content1">热映将映</a></li>
+            </ul>
         </div>
         <hr>
         <div id="current">
             <div class="category_name2">类型：</div>
             <ul>
-                <li><a href="">全部</a></li>
-                <li><a href="">剧情</a></li>
-                <li><a href="">战争</a></li>
-                <li><a href="">冒险</a></li>
-                <li><a href="">喜剧</a></li>
-                <li><a href="">动作</a></li>
-                <li><a href="">爱情</a></li>
-                <li><a href="">古装</a></li>
-                <li><a href="">犯罪</a></li>
-                <li><a href="">悬疑</a></li>
-                <li><a href="">动画</a></li>
-                <li><a href="">惊悚</a></li>
-                <li><a href="">科幻</a></li>
-                <li><a href="">音乐</a></li>
+                <li><a href="/comment{{top}}">全部</a></li>
+                <li><a href="/comment{{top}}剧情/">剧情</a></li>
+                <li><a href="/comment{{top}}战争/">战争</a></li>
+                <li><a href="/comment{{top}}冒险/">冒险</a></li>
+                <li><a href="/comment{{top}}喜剧/">喜剧</a></li>
+                <li><a href="/comment{{top}}动作/">动作</a></li>
+                <li><a href="/comment{{top}}爱情/">爱情</a></li>
+                <li><a href="/comment{{top}}古装/">古装</a></li>
+                <li><a href="/comment{{top}}犯罪/">犯罪</a></li>
+                <li><a href="/comment{{top}}悬疑/">悬疑</a></li>
+                <li><a href="/comment{{top}}动画/">动画</a></li>
+                <li><a href="/comment{{top}}惊悚/">惊悚</a></li>
+                <li><a href="/comment{{top}}科幻/">科幻</a></li>
+                <li><a href="/comment{{top}}音乐/">音乐</a></li>
                 <li>
                     <button id="btn" class="btn_style">更多</button>
                 </li>
                 <div id="spread">
-                    <li><a href="">武侠</a></li>
-                    <li><a href="">儿童</a></li>
+                    <li><a href="/comment{{top}}武侠/">武侠</a></li>
+                    <li><a href="/comment{{top}}儿童/">儿童</a></li>
                 </div>
             </ul>
         </div>
 
     </div>
-
+    {% if movie %}
     <div class="movie_show">
 
         <div class="row_movie">
@@ -101,70 +101,68 @@
             </div>
             {% endfor %}
         </div>
-
     </div>
-        
-     <script>
-            /*获得btn*/
-            var btn = document.getElementById('btn')
-            var spread = document.getElementById('spread')
-            var iSpread = false
-            /*高度*/
-            var height = spread.scrollHeight
-            /*总时间*/
-            var time = 20;
-            /*间隔*/
-            var interval = 3
-            /*速度*/
-            var speed = height/(time/interval)
-            /*点击事件*/
-            btn.onclick = function (e) {
-                btn.disabled = 'disabled'
-                if(!iSpread){
-                    var speeds = 0
-                    var timer = setInterval(function () {
-                        speeds += speed
-                        spread.style.height = speeds + 'px'
+    {% endif %}
+    <script>
+        /*获得btn*/
+        var btn = document.getElementById('btn')
+        var spread = document.getElementById('spread')
+        var iSpread = false
+        /*高度*/
+        var height = spread.scrollHeight
+        /*总时间*/
+        var time = 20;
+        /*间隔*/
+        var interval = 3
+        /*速度*/
+        var speed = height / (time / interval)
+        /*点击事件*/
+        btn.onclick = function (e) {
+            btn.disabled = 'disabled'
+            if (!iSpread) {
+                var speeds = 0
+                var timer = setInterval(function () {
+                    speeds += speed
+                    spread.style.height = speeds + 'px'
 
-                        if(parseInt(spread.style.height) >=height){
-                            clearTimeout(timer)
-                            btn.disabled = ''
-                        }
-                    },interval)
-                    this.innerHTML = '收起'
-                }else {
-                    var speeds = height
-                    this.innerHTML = '展开'
-                    var timer = setInterval(function () {
-                        speeds -= speed
-                        spread.style.height = speeds + 'px'
-                        if(speeds <= 0){
-                            clearTimeout(timer)
-                            btn.disabled = ''
-                        }
-                    },interval)
-                }
-                iSpread = !iSpread
+                    if (parseInt(spread.style.height) >= height) {
+                        clearTimeout(timer)
+                        btn.disabled = ''
+                    }
+                }, interval)
+                this.innerHTML = '收起'
+            } else {
+                var speeds = height
+                this.innerHTML = '展开'
+                var timer = setInterval(function () {
+                    speeds -= speed
+                    spread.style.height = speeds + 'px'
+                    if (speeds <= 0) {
+                        clearTimeout(timer)
+                        btn.disabled = ''
+                    }
+                }, interval)
             }
-         </script> 
-
-        
-    </div>
-    <!--悬浮主导航栏-->
-<script type="text/javascript">
-$(document).ready(function () {
-    var topH=$("#top").height();//获取头部高度，top指导航栏上面的部分
-    var navbg=$("#navbg");//获取导航栏对象
-    $(window).scroll(function () {
-        if($(window).scrollTop()>topH){//对比滚动的距离与导航栏上面部分的高度大小来动态添加css样式
-            navbg.addClass("scrollNav")//对导航栏添加样式
-        }else{
-            navbg.removeClass("scrollNav")//去掉导航栏添加的样式
+            iSpread = !iSpread
         }
+    </script>
+
+
+</div>
+<!--悬浮主导航栏-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var topH = $("#top").height();//获取头部高度，top指导航栏上面的部分
+        var navbg = $("#navbg");//获取导航栏对象
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > topH) {//对比滚动的距离与导航栏上面部分的高度大小来动态添加css样式
+                navbg.addClass("scrollNav")//对导航栏添加样式
+            } else {
+                navbg.removeClass("scrollNav")//去掉导航栏添加的样式
+            }
+        });
     });
-});
 </script>
-    
+
 </body>
 </html>
-{% endif %}

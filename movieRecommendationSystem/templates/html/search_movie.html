@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 {% load staticfiles %}
-{% if movie %}
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -46,37 +46,13 @@
 
 <div class="main_body">
     <div id="category">
-        <div id="current">
-            <div class="category_name2">类型：</div>
-            <ul>
-                <li><a href="">全部</a></li>
-                <li><a href="">剧情</a></li>
-                <li><a href="">战争</a></li>
-                <li><a href="">冒险</a></li>
-                <li><a href="">喜剧</a></li>
-                <li><a href="">动作</a></li>
-                <li><a href="">爱情</a></li>
-                <li><a href="">古装</a></li>
-                <li><a href="">犯罪</a></li>
-                <li><a href="">悬疑</a></li>
-                <li><a href="">动画</a></li>
-                <li><a href="">惊悚</a></li>
-                <li><a href="">科幻</a></li>
-                <li><a href="">音乐</a></li>
-                <li>
-                    <button id="btn" class="btn_style">更多</button>
-                </li>
-                <div id="spread">
-                    <li><a href="">武侠</a></li>
-                    <li><a href="">儿童</a></li>
-                </div>
-            </ul>
+        <div class="category1">
+            <div class="category_name1">频道：</div>
+            <div class="category_content1">搜索电影</div>
         </div>
-
     </div>
-
+    {% if movie %}
     <div class="movie_show">
-
         <div class="row_movie">
             {% for m in movie %}
             <div class="movie-card">
@@ -94,9 +70,8 @@
             </div>
             {% endfor %}
         </div>
-
     </div>
-
+    {% endif %}
     <script>
         /*获得btn*/
         var btn = document.getElementById('btn')
@@ -161,4 +136,4 @@
 </body>
 </html>
 
-{% endif %}
+
