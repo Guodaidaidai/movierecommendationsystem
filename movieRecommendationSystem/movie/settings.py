@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap_pagination',
     'comment',
 ]
 
@@ -77,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'movie',
         'USER': 'root',
-        'PASSWORD': 'zxl19970214',
+        'PASSWORD': 'wxguo1018',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

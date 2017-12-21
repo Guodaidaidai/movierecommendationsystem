@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template import loader
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -70,8 +71,12 @@ def recommend(req):
     else:
         user = req.user
         movieIds = loadMovies()
-        movie = getUserOnshowRating(user.id, 30, movieIds)
-        return render(req, '../templates/html/recommanding_film.html', {'movie': movie, 'user': user})
+        movie = getUserOnshowRating(user.id, 100, movieIds)
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/recommanding_film.html', {'movie': loaded, 'user': user})
 
 
 def recommend_type(req, type):
@@ -81,8 +86,12 @@ def recommend_type(req, type):
     else:
         user = req.user
         movieIds = type_select(type, "全部")
-        movie = getUserOnshowRating(user.id, 30, movieIds)
-        return render(req, '../templates/html/recommanding_film.html', {'movie': movie, 'user': user})
+        movie = getUserOnshowRating(user.id, 60, movieIds)
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/recommanding_film.html', {'movie': loaded, 'user': user})
 
 
 def hot_film(req):  # 优秀电影
@@ -91,8 +100,12 @@ def hot_film(req):  # 优秀电影
         return HttpResponseRedirect('/comment/search/%s' % key)
     else:
         user = req.user
-        movie = loadGoodMovie(30, "全部")
-        return render(req, '../templates/html/hot_flim.html', {'movie': movie, 'user': user})
+        movie = loadGoodMovie(100, "全部")
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/hot_flim.html', {'movie': loaded, 'user': user})
 
 
 def hot_film_type(req, type):
@@ -101,8 +114,12 @@ def hot_film_type(req, type):
         return HttpResponseRedirect('/comment/search/%s' % key)
     else:
         user = req.user
-        movie = loadGoodMovie(30, type)
-        return render(req, '../templates/html/hot_flim.html', {'movie': movie, 'user': user})
+        movie = loadGoodMovie(60, type)
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/hot_flim.html', {'movie': loaded, 'user': user})
 
 
 def shown_film(req):  # 热映电影
@@ -112,8 +129,12 @@ def shown_film(req):  # 热映电影
     else:
         user = req.user
         movieIds = loadOnshowMovie()
-        movie = getUserOnshowRating(user.id, 30, movieIds)
-        return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/shown_film/"})
+        movie = getUserOnshowRating(user.id, 60, movieIds)
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/shown_film.html', {'movie': loaded, 'user': user, 'top': "/shown_film/"})
 
 
 def shown_film_all(req):
@@ -126,7 +147,11 @@ def shown_film_all(req):
         movie = []
         for id in movieIds:
             movie.append(MovieInfo.objects.get(m_id=id))
-    return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/all/"})
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+    return render(req, '../templates/html/shown_film.html', {'movie': loaded, 'user': user, 'top': "/all/"})
 
 
 def shown_film_type(req, type):
@@ -137,8 +162,12 @@ def shown_film_type(req, type):
         user = req.user
         top = "/shown_film/"
         movieIds = type_select(type, "热映")
-        movie = getUserOnshowRating(user.id, 30, movieIds)
-    return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': top})
+        movie = getUserOnshowRating(user.id, 60, movieIds)
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+    return render(req, '../templates/html/shown_film.html', {'movie': loaded, 'user': user, 'top': top})
 
 
 def shown_film_all_type(req, type):
@@ -151,7 +180,11 @@ def shown_film_all_type(req, type):
         movie = []
         for id in movieIds:
             movie.append(MovieInfo.objects.get(m_id=id))
-        return render(req, '../templates/html/shown_film.html', {'movie': movie, 'user': user, 'top': "/all/"})
+        limit = 20
+        paginatior = Paginator(movie, limit)
+        page = req.GET.get('page', 1)
+        loaded = paginatior.page(page)
+        return render(req, '../templates/html/shown_film.html', {'movie': loaded, 'user': user, 'top': "/all/"})
 
 
 def personal_center(req):
