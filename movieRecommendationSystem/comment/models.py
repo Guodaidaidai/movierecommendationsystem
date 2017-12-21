@@ -35,9 +35,6 @@ class MovieInfo(models.Model):
 
 
 
-
-
-
 class Sentimentclassify(models.Model):
     m = models.ForeignKey(MovieInfo, models.DO_NOTHING)
     index = models.AutoField(primary_key=True)
@@ -86,13 +83,16 @@ class User(models.Model):
     def __str__(self):
         return str(self.u_id)
 
-class movie_resource(models.Model):
-    c_id=models.IntegerField(primary_key=True)
-    movie=models.ForeignKey(MovieInfo,db_column="m_id")
-    resource=models.CharField(max_length=1000)
-    class Meta:
-        db_table="movie_resource"
+class MovieRating(models.Model):
+    m_id = models.AutoField(primary_key=True)
+    rating = models.FloatField(null=False)
 
+    class Meta:
+        managed = False
+        db_table = 'movie_rating'
+
+    def __str__(self):
+        return str(self.m_id)
 
 class cinema_info(models.Model):
     c_id=models.IntegerField(primary_key=True)
@@ -103,8 +103,6 @@ class cinema_info(models.Model):
     latitude=models.FloatField()
     class Meta:
         db_table="cinema_info"
-
-
 
 class price_info(models.Model):
     p_id=models.IntegerField(primary_key=True)
@@ -120,12 +118,9 @@ class price_info(models.Model):
     class Meta:
         db_table="price_info"
 
-
-
-
-
-
-
-
-
-
+class movie_resource(models.Model):
+    c_id=models.IntegerField(primary_key=True)
+    movie=models.ForeignKey(MovieInfo,db_column="m_id")
+    resource=models.CharField(max_length=1000)
+    class Meta:
+        db_table="movie_resource"

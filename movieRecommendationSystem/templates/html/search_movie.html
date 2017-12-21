@@ -4,10 +4,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>优秀电影</title>
+    <title>搜索电影</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/component.css' %}">
-    <link rel="stylesheet" href="{% static 'css/hot_film.css' %}">
+    <link rel="stylesheet" href="{% static 'css/recommanding_film.css' %}">
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
 
@@ -46,12 +46,6 @@
 
 <div class="main_body">
     <div id="category">
-        <div class="category1">
-            <div class="category_name1">频道：</div>
-            <div class="category_content1">优秀电影</div>
-            <br>
-        </div>
-        <hr>
         <div id="current">
             <div class="category_name2">类型：</div>
             <ul>
@@ -93,7 +87,7 @@
                     <div class="movie_info">
                         <div class="movie_name">{{m.m_name}}</div>
                         <div class="movie_introduction">
-                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">电影简介</a>
+                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">在日卖电视台发生了爆炸案！此时，引领日本百人一首界的“皋月会”正举办记者会，人群陷入大恐慌！在崩塌中的大楼内，只有关西名侦探——服部平次和他的青梅竹马——远山和叶被困，千钧一发之际柯南将他们平安救出。案件如恐怖袭击一般，然而犯人的目的无人知晓的无法理解的状况令柯南和平次不禁感到蹊跷。</a>
                         </div>
                     </div>
                 </div>
@@ -166,4 +160,5 @@
 
 </body>
 </html>
+
 {% endif %}
