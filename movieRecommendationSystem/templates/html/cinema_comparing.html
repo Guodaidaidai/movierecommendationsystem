@@ -188,8 +188,14 @@
 <script >
 
     function updateCinema(cinemas,cur_position){
-        $("#price_info").empty();
-        for(var i=cur_position*3;i<cinemas.length&&i<cur_position*3+5;i++){
+        var el=$("#price_info");
+        el.empty();
+        var li=$("<li></li>");
+        var a = $("<a></a>").attr("class", "auto_a").text("<<").attr("href", "#").attr("id", "上一批");
+        li.append(a);
+        el.append(li);
+
+        for(var i=cur_position*3;i<cinemas.length&&i<cur_position*3+3;i++){
         var li=$("<li></li>");
         var d;
         if (dises.length!=0){
@@ -197,19 +203,15 @@
         }else{
             d=""
         }
-        if(i==cur_position*3){
-            var a = $("<a></a>").attr("class", "auto_a").text("<<").attr("href", "#").attr("id", "上一批");
-
-        }else if(i<=cur_position*3+3) {
-            var a = $("<a></a>").attr("class", "auto_a").text(cinemas[i]["fields"]["name"] + " " + d).attr("href", "#").attr("id", cinemas[i]["pk"]);
-
-        }else{
-            var a = $("<a></a>").attr("class", "auto_a").text(">>").attr("href", "#").attr("id", "下一批");
-
-        }
+        var a = $("<a></a>").attr("class", "auto_a").text(cinemas[i]["fields"]["name"] + " " + d).attr("href", "#").attr("id", cinemas[i]["pk"]);
         li.append(a);
-        $("#price_info").append(li);
-    }
+        el.append(li);
+        }
+
+        var li=$("<li></li>");
+        var a = $("<a></a>").attr("class", "auto_a").text(">>").attr("href", "#").attr("id", "下一批");
+        li.append(a);
+        el.append(li);
     }
 
 
@@ -244,10 +246,11 @@
         }
 
         if(el.attr("id")=="下一批"){
+            cur_cinema_position++;
             if(cur_cinema_position==last_cinema_position){
                 return;
             }else{
-                cur_cinema_position++;
+
                 updateCinema(cinemas,cur_cinema_position)
             }
 
