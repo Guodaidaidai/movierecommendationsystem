@@ -7,7 +7,7 @@ from math import sin,cos,sqrt,atan2,radians
 import decimal
 
 from django.core import serializers
-
+import datetime
 # Create your views here.
 
 def index(request):
@@ -57,9 +57,16 @@ def ajax_price(request):
 
 def get_dates(prices):
     dates=[]
+    i = datetime.datetime.now()
+    month = i.month
+    day = i.day
+    today_date = str(month) + "月" + str(day) + "日"
     for price in prices:
-        if price.date not in dates:
+        if price.date not in dates and price.date>=today_date:
             dates.append(price.date)
+
+
+    dates=sorted(dates)
     return dates
 def sort_prices(prices):
     return sorted(prices,key=lambda price:price.start_time )
@@ -88,7 +95,7 @@ def get_distances(cinemas,lon,lat):
         if cinema.longitude=="" or cinema.latitude=="":
             continue
         dis=get_distance(lon,cinema.longitude,lat,cinema.latitude)
-        dises.append(dis)
+        dises.append(str(int(dis))+"米")
     return dises
 
 def movie_price(request,m_id,lon,lat):
@@ -111,6 +118,8 @@ def movie_price(request,m_id,lon,lat):
 
         movie = get_object_or_404(MovieInfo, pk=m_id)
         near_cinema = cinemas[0]  # 找到最近的电影院
+
+
 
         prices = list(get_list_or_404(price_info, cinema__c_id=near_cinema.c_id,
                                       movie__m_id=m_id))
