@@ -144,7 +144,7 @@
           </div>
         <!-- el end -->
         <!-- el start -->
-        <!--  <div class="el">
+          <div class="el">
             <div class="el__overflow">
                 <div class="el__inner">
                     <div class="el__bg"></div>
@@ -168,7 +168,7 @@
                 </div>
             </div>
         </div>
-           -->
+
         <!-- el end -->
         <!-- el start -->
         <div class="el">
@@ -187,14 +187,15 @@
 <!--........................zhang.......................-->
 <script >
 
+    function updateCinema(cinemas,cur_position){
+        var el=$("#price_info");
+        el.empty();
+        var li=$("<li></li>");
+        var a = $("<a></a>").attr("class", "auto_a").text("<<").attr("href", "#").attr("id", "上一批");
+        li.append(a);
+        el.append(li);
 
-    var m_id={{ m_id }};//m_id信息一定存在
-    var c_id;
-    var date;
-    var cinemas ={{cinema_dis_list|safe}};//cinema信息一定有
-    var dises={{dis|safe}};
-
-    for(var i=0;i<cinemas.length&&i<6;i++){
+        for(var i=cur_position*3;i<cinemas.length&&i<cur_position*3+3;i++){
         var li=$("<li></li>");
         var d;
         if (dises.length!=0){
@@ -202,22 +203,75 @@
         }else{
             d=""
         }
-        var a=$("<a></a>").attr("class","hide").text(cinemas[i]["fields"]["name"]+d).attr("href","#").attr("id",cinemas[i]["pk"]);
+        var a = $("<a></a>").attr("class", "auto_a").text(cinemas[i]["fields"]["name"] + " " + d).attr("href", "#").attr("id", cinemas[i]["pk"]);
         li.append(a);
-        $("#price_info").append(li);
+        el.append(li);
+        }
+
+        var li=$("<li></li>");
+        var a = $("<a></a>").attr("class", "auto_a").text(">>").attr("href", "#").attr("id", "下一批");
+        li.append(a);
+        el.append(li);
     }
+
+
+    var m_id={{ m_id }};//m_id信息一定存在
+    var c_id;
+    var date;
+    var cinemas ={{cinema_dis_list|safe}};//cinema信息一定有
+    var dises={{dis|safe}};
+    var cur_cinema_position=0;
+    var last_cinema_position=(cinemas.length)/3;
+
+
+    updateCinema(cinemas,cur_cinema_position);
+
+
 
 
 
 </script>
 <script>
+    $("#price_info").on("click","a",function(){
+        var el=$(this);
+        if(el.attr("id")=="上一批"){
+            if(cur_cinema_position==0){
+                return;
+
+            }else{
+                cur_cinema_position--;
+                updateCinema(cinemas,cur_cinema_position)
+            }
+            return;
+        }
+
+        if(el.attr("id")=="下一批"){
+            cur_cinema_position++;
+            if(cur_cinema_position==last_cinema_position){
+                return;
+            }else{
+
+                updateCinema(cinemas,cur_cinema_position)
+            }
+
+            return ;
+        }
+    });
+
     $("#price_info").on("mouseover","a",function(){
         var first=1;
         var el=$(this);
+        if(el.attr("id")=="上一批"){
+            return;
+        }
+        if(el.attr("id")=="下一批"){
+            return;
+        }
 
-        if(el.attr("class")=="hide"){//点击的是影院
+        if(el.attr("class")=="auto_a"){//点击的是影院
             first=0;//日期默认为第一天
             c_id=el.attr("id");
+
         }else {//点击的是时间
             date = el.text();
         }
@@ -237,7 +291,7 @@
                 var ul=$("<ul></ul>");
                 if(dates.length==0){//该影院不放映该电影
                     var li=$("<li></li>");
-                    var div=$("<div></div>").text("这家电影院没有放映该电影噢，试试其他影院吧~");
+                    var div=$("<div></div>").text("这家电影院没有放映该电影噢，试试其他影院吧~").attr("class","no_price_info");
                     li.append(div)
                     ul.append(li)
 
@@ -267,12 +321,12 @@
                     for (var i=0;i<prices.length;i++) {
                        // alert(i);
                         var film_div = $('<div></div>').attr("class", "film");
-                        var time1_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["start_time"]);
-                        var time2_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["end_time"]);
-                        var halln_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["hall_name"]);
-                        var hallt_div = $('<div></div>').attr("class", "film_price").text(prices[i]["fields"]["hall_type"]);
-                        var price_div=$('<div></div>').attr("class","film_price").text(prices[i]["fields"]["price"]+"元");
-                        var w_name_div=$('<div></div>').attr("class","film_price").text(prices[i]["fields"]["w_name"]);
+                        var time1_div = $('<div></div>').attr("class", "new_film_price").text(prices[i]["fields"]["start_time"]);
+                        var time2_div = $('<div></div>').attr("class", "new_film_price").text(prices[i]["fields"]["end_time"]);
+                        var halln_div = $('<div></div>').attr("class", "long_film_price").text(prices[i]["fields"]["hall_name"]);
+                        var hallt_div = $('<div></div>').attr("class", "long2_film_price").text(prices[i]["fields"]["hall_type"]);
+                        var price_div=$('<div></div>').attr("class","new_film_price").text(prices[i]["fields"]["price"]+"元");
+                        var w_name_div=$('<div></div>').attr("class","new_film_price").text(prices[i]["fields"]["w_name"]);
                         film_div.append(time1_div);
                         film_div.append(time2_div);
                         film_div.append(halln_div);

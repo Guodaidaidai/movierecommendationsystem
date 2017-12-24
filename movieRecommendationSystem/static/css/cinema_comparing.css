@@ -751,3 +751,48 @@ body {
 	left:auto;
 	right:5px;
 }
+.auto_a,.menu ul li a, .menu ul li a:visited {
+
+    width: auto;
+}
+
+.date_a,.auto_a {
+
+    width: 100px;
+}
+
+
+.new_film_price,.film_price {
+    float: left;
+    color: white;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.long_film_price,.film_price {
+    float: left;
+    color: white;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    margin-left: 30px;
+}
+.long2_film_price,.film_price {
+    float: left;
+    color: white;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin-left: 30px;
+}
+.no_price_info{
+	height:30px;
+	padding:5px;
+	font-size:12px;
+	text-align: center;
+	;
+
+}
+

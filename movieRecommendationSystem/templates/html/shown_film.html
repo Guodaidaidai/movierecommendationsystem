@@ -90,12 +90,12 @@
             <div class="movie-card">
                 <div class="single_movie">
                     <div class="movie_post">
-                        <a href="/comment/{{ m.m_id }}/sentiment/"><img src="{{ m.post_url}}"></a>
+                        <a href="#" onclick="go({{m.m_id}})"><img src="{{ m.post_url}}"></a>
                     </div>
                     <div class="movie_info">
                         <div class="movie_name">{{m.m_name}}</div>
                         <div class="movie_introduction">
-                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">电影简介</a>
+                            <a href="#" onclick="go({{m.m_id}})" >class="note">电影简介</a>
                         </div>
                     </div>
                 </div>
@@ -103,6 +103,49 @@
             {% endfor %}
         </div>
     </div>
+
+    <script>
+    var m_id;
+    function go(id){
+        m_id=id;
+        navigator.geolocation.getCurrentPosition(onSuccess);
+
+    }
+    function getLocation() {
+
+
+    if (navigator.geolocation) {
+        //浏览器支持geolocation
+        navigator.geolocation.getCurrentPosition(onSuccess,onFail);
+    } else {
+        //浏览器不支持geolocation
+        alert('您的浏览器不支持地理位置定位');
+    }
+}
+//失败时
+function onFail(error){
+
+     alert("用户不同意");
+     window.location.href="http://localhost:8000/zhang/"+m_id+"/0.0/0.0/price";
+}
+
+//成功时
+function onSuccess(position) {
+    //返回用户位置
+    //经度
+    var longitude = position.coords.longitude;
+    //纬度
+    var latitude = position.coords.latitude;
+
+     window.location.href="http://localhost:8000/zhang/"+m_id+"/"+longitude+"/"+latitude+"/price";
+
+}
+
+
+</script>
+
+
+
     <div class="col-md-8 col-sm-offset-2 text-center">{% bootstrap_paginate movie range=10 show_prev_next="false" show_first_last="true" %}
     </div>
     {% endif %}
