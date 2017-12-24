@@ -12,6 +12,17 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    url = models.CharField(max_length=500, blank=True)
+
+class UCollect(models.Model):#收藏的表
+    m_id = models.IntegerField(primary_key=True)
+    u_id = models.IntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'movie_ucollect'
 
 
 class MovieInfo(models.Model):
@@ -31,8 +42,6 @@ class MovieInfo(models.Model):
 
     def get_absolute_url(self):
         return reverse('comment:movie_info',args=[self.m_id])
-
-
 
 
 class Sentimentclassify(models.Model):
@@ -75,6 +84,7 @@ class User(models.Model):
     u_id = models.AutoField(primary_key=True)
     u_name = models.CharField(max_length=50, blank=True, null=True)
     u_url = models.CharField(max_length=100, blank=True, null=True)
+    u_image = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -82,6 +92,7 @@ class User(models.Model):
 
     def __str__(self):
         return str(self.u_id)
+
 
 class MovieRating(models.Model):
     m_id = models.AutoField(primary_key=True)
@@ -94,6 +105,7 @@ class MovieRating(models.Model):
     def __str__(self):
         return str(self.m_id)
 
+
 class cinema_info(models.Model):
     c_id=models.IntegerField(primary_key=True)
     name=models.CharField(max_length=50)#影院name
@@ -103,6 +115,7 @@ class cinema_info(models.Model):
     latitude=models.FloatField()
     class Meta:
         db_table="cinema_info"
+
 
 class price_info(models.Model):
     p_id=models.IntegerField(primary_key=True)
@@ -117,6 +130,7 @@ class price_info(models.Model):
     price=models.IntegerField()
     class Meta:
         db_table="price_info"
+
 
 class movie_resource(models.Model):
     c_id=models.IntegerField(primary_key=True)

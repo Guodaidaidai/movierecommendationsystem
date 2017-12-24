@@ -33,13 +33,13 @@
             <span><a href="html/regisiter.html">注册</a></span>
             -->
             <div class="portrait dropdown">
-                <img src="{% static 'img/%E5%B0%8F%E5%93%80.jpeg' %}">
+                <img src="{{user.last_name}}">
                 <div class="dropdown-content">
-                    <p><a href="/comment/personal/">个人中心</a></p>
+                    <p><a href="/comment/personal_center/">个人中心</a></p>
                     <p><a href="/comment/login/">退出</a></p>
                 </div>
             </div>
-            <div class="nav_username">{{user.username}}</div>
+            <div class="nav_username">{{user.first_name}}</div>
         </div>
     </nav>
 </div>
@@ -103,7 +103,8 @@
             {% endfor %}
         </div>
     </div>
-    <div class="col-md-8 col-sm-offset-2 text-center">{% bootstrap_paginate movie range=10 show_prev_next="false" show_first_last="true" %}</div>
+    <div class="col-md-8 col-sm-offset-2 text-center">{% bootstrap_paginate movie range=10 show_prev_next="false" show_first_last="true" %}
+    </div>
     {% endif %}
     <script>
         /*获得btn*/

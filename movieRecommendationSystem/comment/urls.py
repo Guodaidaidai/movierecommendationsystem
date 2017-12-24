@@ -20,5 +20,8 @@ urlpatterns=[
     url(r'^personal_center/$', views.personal_center, name='personal_center'),
     url(r'^personal_setting/$', views.personal_setting, name='personal_setting'),
     url(r'^search/(.+)/$', views.search, name='search'),
+    # 用户收藏
+    url(r'^user/collect/add/$', views.add_user_collect, name='add_user_collect'),
+    url(r'^user/collect/change_user_info/$', views.change_user_info, name='change_user_info'),
 
 ]
