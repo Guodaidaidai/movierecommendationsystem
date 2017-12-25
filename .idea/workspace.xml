@@ -5,6 +5,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/movieRecommendationSystem/static/js/cinema_comparing.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/cinema_comparing.html" afterPath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/cinema_comparing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieRecommendationSystem/comment/views.py" afterPath="$PROJECT_DIR$/movieRecommendationSystem/comment/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/hot_flim.html" afterPath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/hot_flim.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/search_movie.html" afterPath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/search_movie.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/login.html" afterPath="$PROJECT_DIR$/movieRecommendationSystem/templates/html/login.html" />
