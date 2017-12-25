@@ -92,7 +92,7 @@
 {
     margin: 0px;
     float:left;
-    width:1080px;
+    width:900px;
     padding-left: 0px;
 }
 
@@ -150,10 +150,10 @@
 
 .movie_show
 {
-    width:1150px;
+    width:900px;
     height:1180px;
     float:left;
-    margin-left: 180px;
+    margin-left: 300px;
     margin-top: 50px;
 }
 

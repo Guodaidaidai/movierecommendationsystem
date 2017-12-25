@@ -1,5 +1,5 @@
 function collection(m_id,u_id){
-    var gnl=confirm("确定?");
+    var gnl=confirm(u_id);
     if (gnl==false){
         return;
     }

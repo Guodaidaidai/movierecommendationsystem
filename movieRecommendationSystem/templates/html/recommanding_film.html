@@ -89,12 +89,13 @@
                     <div class="movie_post">
                         <a href="/comment/{{ m.m_id }}/sentiment/"><img src="{{ m.post_url}}"></a>
                     </div>
-                    <div class="movie_info">
+                   <div class="movie_info">
                         <div class="movie_name">{{m.m_name}}</div>
                         <div class="movie_introduction">
-                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">电影简介</a>
+                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">{{m.summary}}</a>
                         </div>
                     </div>
+
                 </div>
             </div>
             {% endfor %}

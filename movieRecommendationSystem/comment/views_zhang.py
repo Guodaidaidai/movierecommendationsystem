@@ -105,7 +105,7 @@ def movie_price(request,m_id,lon,lat):
     dis=[]
     movie=None
     dates=[]
-
+    user = request.user
     print(movie)
     #这里需要对影院的根据远近进行排序
     try:
@@ -129,7 +129,7 @@ def movie_price(request,m_id,lon,lat):
         prices_today = sort_prices(prices_today)  # 对票价进行排序
 
         return render(request, '../templates/html/cinema_comparing.html',
-                      {'cinema_dis_list': serializers.serialize('json', cinemas),
+                      {'user':user,'cinema_dis_list': serializers.serialize('json', cinemas),
                        'm_id': m_id, 'movie': movie, 'dates': dates, 'dis': dis,
                        'prices': serializers.serialize('json', prices_today)})
 

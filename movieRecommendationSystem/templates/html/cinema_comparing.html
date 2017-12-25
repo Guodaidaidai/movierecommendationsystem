@@ -16,6 +16,7 @@
 		<script src='{% static "js/bootstrap.min.js"%}'></script>
         <script src='{% static "js/bootstrap.min.js"%}'></script>
         <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.7.min.js"></script>
+        <script src='{% static "js/cinema_comparing.js"%}'></script>
     </head>
 
 <body>
@@ -60,7 +61,7 @@
     <div class="movie_name">{{movie.m_name}}</div>
 
       <div class="a1">
-          <button onclick="collection('{{ movie.m_id }}','{{user.u_id}}')"><p>收藏</p></button>
+          <button onclick="collection('{{ movie.m_id }}','{{user.id}}')"><p>收藏</p></button>
        <div class="roundedOne">
       <input type="checkbox" value="None" id="roundedOne" name="check" checked />
       <label for="roundedOne"></label>
@@ -154,13 +155,14 @@
                     <div class="el__content">
                         <div class="el__text">
                             <div class="outline">
-                               薄雾笼罩的京都，一起攸关日本国家安全的大事件即将发生。一艘疑似装载爆炸物的可疑船只靠近舞鹤湾。通过对船上相关数据和零部件的勘察判明，该船很大可能来自海外。此消息一出，立刻引起全日本上下的恐慌。就在同一天，江户川柯南、毛利小五郎、毛利兰以及少年侦探团的各位一同观摩海上自卫队组织的对空作战演习，他们史无前例地登上了宙斯盾舰穗高号，与全国各地聚集来的孩子们一起，被装备了电子武装的高科技宙斯盾舰带来的巨大魄力所震撼。谁知演习中突发意外，原本虚拟的作战瞬间变成真枪实弹的杀戮。不久，海面上漂浮着的失去左臂的自卫队队员一等海尉笹浦洋介遗体被发现。种种不安与猜测在小兰和少年侦探们的心中蔓延。另一方面，海上自卫队迅速冷静地稳定事态，但始终不能探明敌人的真实身份和他的目标。就在此时，宙斯盾舰上发现了遇害队员的左臂，其配戴的手表指针停止在上午5:30。接二连三的异常事件，迫使大阪府警乘坐直升机赶来，与京都当地的同侪协作展开调查。在此期间，神秘的女性自卫队员藤井七海也登上了宙斯盾舰。
+                               {{movie.summary}}
                             </div>
                         </div>
                         <div class="el__close-btn"></div>
                     </div>
                 </div>
             </div>
+
             <div class="el__index">
                 <div class="el__index-back">O</div>
                 <div class="el__index-front">
