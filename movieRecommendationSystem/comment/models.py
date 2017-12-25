@@ -32,6 +32,7 @@ class MovieInfo(models.Model):
     m_country = models.CharField(max_length=50, blank=True, null=True)
     m_year = models.CharField(max_length=100, blank=True, null=True)
     post_url = models.CharField(max_length=100, blank=True, null=True)
+    summary=models.CharField(max_length=1000, blank=True, null=True)
 
     class Meta:
         managed = False

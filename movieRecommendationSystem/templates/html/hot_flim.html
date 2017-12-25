@@ -67,13 +67,13 @@
                 <li><a href="/comment/hot_film/动画/">动画</a></li>
                 <li><a href="/comment/hot_film/惊悚/">惊悚</a></li>
                 <li><a href="/comment/hot_film/科幻/">科幻</a></li>
-                <li><a href="/comment/hot_film/音乐/">音乐</a></li>
                 <li>
                     <button id="btn" class="btn_style">更多</button>
                 </li>
                 <div id="spread">
                     <li><a href="/comment/hot_film/武侠/">武侠</a></li>
                     <li><a href="/comment/hot_film/儿童/">儿童</a></li>
+                     <li><a href="/comment/hot_film/音乐/">音乐</a></li>
                 </div>
             </ul>
         </div>
@@ -92,9 +92,10 @@
                     <div class="movie_info">
                         <div class="movie_name">{{m.m_name}}</div>
                         <div class="movie_introduction">
-                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">电影简介</a>
+                            <a href="/comment/{{ m.m_id }}/sentiment/" class="note">{{m.summary}}</a>
                         </div>
                     </div>
+
                 </div>
             </div>
             {% endfor %}

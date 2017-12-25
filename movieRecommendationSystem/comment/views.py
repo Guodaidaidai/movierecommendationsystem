@@ -243,9 +243,10 @@ def add_user_collect(request):
         if key not in request.POST:
             msg = json.dumps({'msgcode': 0, 'errmsg': '{}数据缺失'.format(key)}, ensure_ascii=False)
             return HttpResponse(msg, content_type="application/json")
-    #获取参数
+    #获取参数u（）
+    print(request.POST['u_id'])
     m_id = request.POST['m_id']
-    u_id = request.POST['m_id']
+    u_id = request.POST['u_id']
     print('收藏')
 
     # 处理用户收藏
